@@ -4,7 +4,10 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
-  password: String
+  password: String,
+  friends: { type: Array},
+  favorites: { type: Array},
+  createdAt: { type: Date, default: Date.now},
 })
 
 
