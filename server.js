@@ -8,7 +8,8 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-const todoRoutes = require('./routes/todos')
+const recipeRoutes = require('./routes/recipes')
+
 
 require('dotenv').config({path: './config/.env'})
 
@@ -37,9 +38,16 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
+
+//SET GLOBAL VARIABLE
+app.use(function(req, res, next) {
+  res.locals.user = req.user || null
+  next()
+})
   
 app.use('/', mainRoutes)
-app.use('/todos', todoRoutes)
+app.use('/recipes', recipeRoutes)
+
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

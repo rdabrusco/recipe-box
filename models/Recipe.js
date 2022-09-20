@@ -3,7 +3,6 @@ const mongoose = require('mongoose')
 const RecipeSchema = new mongoose.Schema({
     img: {
       type: String,
-      required: true,
     },
     likes: {
       type: Number,
@@ -29,18 +28,24 @@ const RecipeSchema = new mongoose.Schema({
     },
     course: {
         type: String,
-        required: true,
-
     },
-    timeToMake: {
+    prepTime: {
         type: String,
         required: true,
 
     },
-    tags: {
-        type: Array,
+    cookTime: {
+        type: String,
         required: true,
+
     },
+    servings: {
+        type: Number,
+    }
+    // tags: {
+    //     type: Array,
+    //     required: true,
+    // },
 
   
     

@@ -1,10 +1,55 @@
-h1{
-    color: red;
+html, body{
+    height: 100%;
 }
-.completed{
-    text-decoration: line-through;
-    color: gray;
+
+
+.flex{
+    display: flex;
 }
-.not{
-    text-decoration: underline;
+
+.column{
+    flex-direction: column;
 }
+
+.recipe{
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+
+}
+
+.feature{
+    width: 100%;
+    padding: 5%;
+}
+
+.center{
+    justify-content: center;
+}
+
+.half{
+    width: 50%;
+    margin: 0 2% 0 2%;
+}
+
+.recent{
+    width: 30%;
+    margin: 2%;
+}
+
+.recents{
+    height: 50%;
+}
+
+.feature-title{
+    color: #9126b4
+}
+
+.feature .search{
+
+}
+
+main{
+    height: 40%;
+}
+
