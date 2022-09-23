@@ -1,0 +1,377 @@
+/*-----------------------------------------------------------------------------------*/
+/* widgets
+/*-----------------------------------------------------------------------------------*/
+.side-bar{
+.widget{
+  overflow: hidden;
+  margin-bottom: 45px;
+  h2{
+    .lora-bold-italic;
+    font-size: 18px;
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 32px;
+    text-transform: capitalize;
+    &:after{
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #e7e3e1;
+      position: absolute;
+      top: 50%;
+      margin-left: 15px;
+    }
+  }
+  img{
+    max-width: 100%;
+  }
+}
+
+  .search-bar-widget{
+    .search-field{
+      position: relative;
+      .placeholder-lora;
+      input{
+        width: 100%;
+        border: 1px solid #e7e3e1;
+        height: 35px;
+        padding-left: 13px;
+        padding-right: 35px;
+        outline: none;
+      }
+      button{
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 35px;
+        line-height: 33px;
+        width: 35px;
+        display: inline-block;
+        text-align: center;
+        border: none;
+        background-color: transparent;
+        &:hover{
+          opacity: .8;
+        }
+      }
+    }
+
+  }
+
+  .widget{
+    ul{
+      margin-top: 10px;
+    }
+    li{
+      margin-bottom: 10px;
+      a{
+        line-height: 21px;
+        display: inline-block;
+        text-transform: uppercase;
+        color: #000000;
+        .font-lato;
+        &:hover{
+          color: @theme-tag;
+        }
+      }
+      &:last-child{
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .archives-widget{
+    li{
+      width: 49%;
+      display: inline-block;
+      span{
+        color: @theme-one;
+      }
+    }
+  }
+
+.tags-widget{
+
+  li{
+    display: inline-block;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    a{
+      display: inline-block;
+      background: #ffffff;
+      border: 1px solid #e7e3e1;
+      padding: 4px 17px;
+      text-transform: capitalize;
+      .font-karla;
+      &:hover{
+        background: @theme-one;
+        border-color: @theme-one;
+        color: #ffffff;
+      }
+    }
+  }
+}
+  .latest-news-widget{
+    margin-bottom: 33px;
+    li{
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+    }
+  }
+}
+.widget li{
+  &:last-child{
+    border-bottom: none;
+
+  }
+}
+
+.latest-news-widget{
+  li{
+    display: flex;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ebe8e6;
+  }
+  .thumb{
+    margin-right: 15px;
+    a{
+      &:hover{
+        opacity: .7;
+      }
+    }
+    img{
+      width: 66px;
+      max-width: none;
+    }
+  }
+  .post-date{
+    display: block;
+    .font-karla;
+    color: #514b49;
+
+  }
+
+}
+
+.recipe-search{
+  .search-bar-widget{
+    margin-bottom: 21px;
+    .placeholder-col(#ffffff);
+   .placeholder-lora-italic;
+    input[type=search]{
+      background-color: #000000;
+      color: #ffffff;
+      border-color: #000000;
+      .font-lora-italic;
+    }
+    button{
+      color: #ffffff;
+    }
+  }
+  .category-list{
+    padding: 9px;
+    background: @theme-one;
+    ul{
+      display: block;
+      border: 1px solid #64ad36;
+     margin: 0;
+      li{
+        margin: 0;
+        border-bottom: 1px solid #64ad36;
+        min-height: 59px;
+        display: flex;
+        padding: 0 18px;
+        justify-content: space-between;
+        align-items: center;
+        a{
+          .font-lora-italic;
+          font-size: 16px;
+          text-transform: capitalize;
+          color: #33571c;
+        }
+        &:last-child{
+          border-bottom: none;
+        }
+        &:hover{
+          a{
+            color: #ffffff;
+          }
+          .icon-svg{
+            fill: #ffffff;
+          }
+        }
+      }
+    }
+  }
+  .icon-svg{
+    .transition-200ms;
+    fill: #4C8924;
+  }
+
+}
+
+
+
+.side-bar-home{
+  .widget{
+    h2{
+      &:after{
+        background: @theme-one;
+      }
+    }
+  }
+}
+.widget-get-social{
+  ul{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    li{
+
+      display: block;
+      background: #000000;
+     width: 81px;
+
+      a{
+        display: block !important;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        min-height: 106px;
+        &:hover{
+          opacity: .8;
+        }
+      }
+      i{
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      i,span{
+        display: block;
+        color: #ffffff;
+      }
+      .count{
+        .lato-bold;
+      }
+      .count-type{
+        opacity: .7;
+        .lato-regular;
+      }
+      &:last-child{
+        margin-bottom: 10px !important;
+      }
+
+    }
+    .facebook{
+      background: #3b5998;
+    }
+    .twitter{
+      background: #33bcf3;
+    }
+    .google-plus{
+      background: #dd4b39;
+    }
+  }
+}
+div.widget-measurements{
+  .lato-regular;
+  font-size: 15px;
+  color: #000000;
+  h2{
+    margin-bottom: 20px !important;
+  }
+  ul{
+    li{
+      display: block;
+      position: relative;
+      padding-left: 15px;
+      padding-top: 9px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid #ebe8e6;
+      margin-bottom: 0 !important;
+      &:before{
+        content: "\f101";
+        font-family: FontAwesome;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+.default-btn{
+  font-size: 14px;
+}
+}
+.widget-overlay{
+  figure{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    img{
+      width: 100%;
+    }
+
+    &:hover{
+      figcaption{
+        background: rgba(0,0,0,1);
+      }
+    }
+  }
+  figcaption{
+    position: absolute;
+    bottom: 0;
+    .transition-200ms;
+    background: rgba(0,0,0,.8);
+    color: #ffffff;
+    .lato-bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    width: 100%;
+
+  }
+}
+/*--------------------*/
+/* footer widgets styles
+/*--------------------*/
+.footer{
+  &.footer-variant-two{
+    .widget{
+      a{
+        color: #ffffff;
+      }
+
+    }
+    .twitter-widget{
+      .link{
+        color: @theme-one;
+      }
+    }
+  }
+  .widget{
+    margin-bottom: 30px;
+    h2{
+
+      font-size: 21px;
+      color: #ffffff;
+      font-weight: 400;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    a{
+//      color: #ffffff;
+    }
+    p{
+      color: #8b8b8a;
+      opacity: 1;
+    }
+  }
+
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* widgets ends
+/*-----------------------------------------------------------------------------------*/

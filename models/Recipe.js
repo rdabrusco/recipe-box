@@ -1,51 +1,103 @@
 const mongoose = require('mongoose')
 
 const RecipeSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        reqired: true
+    },
+
+    source:{
+        type: String,
+    },
+
+    shortDes: {
+        type: String,
+        reqired: true
+    },
+    fullDes: {
+        type: String,
+    },
+
     img: {
       type: String,
     },
-    likes: {
-      type: Number,
+
+    cloudinaryId: {
+        type: String,
     },
-    userId: {
-      type: String,
-      required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
+
     ingredients: {
         type: Array,
         required: true,
     },
-    instructions: {
+
+    directions: {
         type: Array,
         required: true,
     },
-    tips: {
-        type: Array,
-    },
-    course: {
-        type: String,
-    },
+    
+
     prepTime: {
         type: String,
         required: true,
 
     },
+
+    prepTimeMHD: {
+        type: String,
+        required: true,
+
+    },
+
     cookTime: {
         type: String,
         required: true,
 
     },
+
+    cookTimeMHD: {
+        type: String,
+        required: true,
+
+    },
+
+    totalTime: {
+        type: String,
+        required: true,
+
+    },
+
+    totalTimeMHD: {
+        type: String,
+        required: true,
+
+    },
+
     servings: {
-        type: Number,
-    }
+        type: String,
+    },
+    
+    tips: {
+        type: Array,
+    },
+
     // tags: {
     //     type: Array,
-    //     required: true,
     // },
+
+    likes: {
+      type: Number,
+    },
+
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
+
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
 
   
     

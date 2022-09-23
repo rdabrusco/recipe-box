@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Recipe-Box Home</title>
+</head>
+<body>
+
+<%- include("partials/header.ejs") %>
+    <main>
+        <section class="feature flex column recipe">
+            <div class="flex">
+                <img class="feature-img half"src="img/bbb.jpg" alt="#">
+                <div class="flex column center half">
+                    <h2 class="feature-title">Featured recipe</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur doloremque sequi, totam ducimus tempora magnam nam dolores pariatur ut quibusdam!</p>
+                </div>
+            </div>
+            
+            
+            <!-- <section class="feature-search">
+                <input type="text">
+            </section> -->
+        </section>
+        <section class="recents flex">
+            <section class="recent flex column recipe">
+                <img src="#" alt="#">
+                <h3>Mini Feature</h3>
+            </section>
+            <section class="recent flex column recipe">
+                <img src="#" alt="#">
+                <h3>Mini Feature</h3>
+            </section>
+            <section class="recent flex column recipe">
+                <img src="#" alt="#">
+                <h3>Mini Feature</h3>
+            </section>
+        </section>
+    </main> 
+    <a href="/login"> Login</a>
+    <a href="/signup"> Signup</a>
+    <a href="recipes/newRecipe">New Recipe</a>
+</body>
+</html>

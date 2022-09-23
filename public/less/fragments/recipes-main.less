@@ -1,0 +1,117 @@
+/*-----------------------------------------------------------------------------------*/
+/* recipes home page variation 4 & 5
+/*-----------------------------------------------------------------------------------*/
+.recipes-home-body{
+  background: #f8f6f5;
+  padding-top: 85px;
+  padding-bottom: 85px;
+.recipe-of-day{
+  margin-bottom: 40px;
+  img{
+    width: 100%;
+  }
+}
+
+  .banner-header{
+    margin-bottom: 30px;
+    img{
+      max-width: 100%;
+    }
+  }
+}
+.recipe-set{
+  overflow: hidden;
+  h2{
+//    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 24px;
+    position: relative;
+    &:after{
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      background: #e7e3e1;
+      margin-left: 20px;
+      margin-top: 15px;
+    }
+  }
+}
+.boxed-recipes{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .recipe-single{
+    width: 31%;
+    margin-bottom: 30px;
+//    display: flex;
+//    flex-direction: column;
+    &:hover{
+      .recipe-image{
+        img{
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .recipe-image{
+    overflow: hidden;
+    img{
+      .transition-300ms;
+      width: 100%;
+    }
+  }
+  .outer-detail{
+    background: #ffffff;
+    padding: 10px;
+    .rating-box{
+      padding: 10px 0;
+    }
+    .icon-container{
+      width: 20px;
+    }
+    .post-meta {
+      margin-bottom: 0;
+      padding: 10px 0;
+      li{
+        .lato-bold;
+        font-size: 13px;
+        color: #000000;
+      }
+    }
+    .read-more{
+      color: #000000;
+      margin: 10px  0;
+      font-size: 14px;
+    }
+  }
+  .detail{
+    border: 1px solid #e4d9d1;
+    padding: 20px 18px;
+    h3{
+      margin-top: 0;
+      .lato-black;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-style: normal;
+      line-height: 30px;
+
+    }
+    .short-separator{
+      margin-bottom: 10px;
+    }
+    a{
+      display: inline-block;
+      &:hover{
+        color: @theme-tag;
+      }
+    }
+  }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* recipes home page variation 4 & 5 ends
+/*-----------------------------------------------------------------------------------*/

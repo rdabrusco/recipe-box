@@ -1,0 +1,539 @@
+/*-----------------------------------------------------------------------------------*/
+/* our chefs
+/*-----------------------------------------------------------------------------------*/
+.wrapper-chefs{
+  display: flex;
+  position: relative;
+  margin-bottom: 45px;
+}
+.our-chefs{
+
+
+.chef-single{
+//  display: flex;
+//  flex-direction: column;
+//  flex: 1;
+  overflow: hidden;
+
+  .transition-200ms;
+
+  width: 25%;
+  img{
+    width: 100%;
+    .transition-200ms;
+  }
+ .chef-intro{
+   padding: 15px 25px;
+   h4{
+//     margin-top: 0;
+     font-size: 21px;
+     color: #ffffff;
+     .lora-normal-italic;
+
+     a{
+       .transition-200ms;
+       &:hover{
+         color: #ffffff;
+
+         opacity: .7;
+       }
+     }
+   }
+
+   span{
+    .lato-bold;
+     font-size: 13px;
+     line-height: 30px;
+     text-transform: uppercase;
+     .transition-200ms;
+   }
+ }
+  &:hover{
+      background: @theme-tag;
+    img{
+      transform: scale(1.08);
+    }
+    span{
+      color: #F6F6F6;
+    }
+  }
+}
+}
+.bg-colorA{
+  background: #68645d;
+  span{
+    color: #a5a094;
+  }
+}
+.bg-colorB{
+  background: #79756e;
+  span{
+      color: #bfbaaf;
+  }
+}
+.bg-colorC{
+  background: #949088;
+  span{
+    color: #bfbaaf;
+  }
+}
+.bg-colorD{
+  background: #a8a49d;
+  span{
+    color: #d8d4cb;
+  }
+}
+
+.chef-bg{
+  right: -317px;
+  bottom: -103px;
+}
+
+/*--------------------*/
+/* our chefs variation 1
+/*--------------------*/
+
+
+.homo-4-col{
+  h3{
+    margin-top: 35px;
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  .graphic-box{
+    .transition-200ms;
+
+    img{
+      width: 100%;
+    }
+  }
+  p{
+    .font-karla;
+    margin-bottom: 15px;
+  }
+  .chef-designation{
+    display: inline-block;
+    text-transform: uppercase;
+    .lato-bold;
+    font-size: 13px;
+  }
+  .col-single{
+    padding-bottom: 20px;
+  &:hover{
+//    background: #f8f6f1;
+    .chef-image{
+      opacity: .8;
+    }
+    .graphic-box{
+      opacity: .8;
+    }
+  }
+  }
+  .post-meta{
+    margin-bottom: 30px;
+    li{
+      color: #000000;
+
+    }
+  }
+}
+/*-----------------------------------------------------------------------------------*/
+/* our chefs ends
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+/* our chefs page
+/*-----------------------------------------------------------------------------------*/
+.wrapper-main-contents{
+  &.all-chefs{
+    padding-top: 40px;
+  }
+}
+.line-heading{
+  overflow: hidden;
+  h2{
+    margin-bottom: 50px;
+    position: relative;
+    font-size: 24px;
+    &:after{
+      margin-left: 20px;
+      display: inline-block;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background: #e7e3e1;
+      position: absolute;
+      top: 50%;
+      margin-top: 3px;
+    }
+  }
+}
+.all-chefs{
+  .wrapper-head-chef{
+    position: relative;
+
+  }
+  .bg-corner-head-chef{
+    position: absolute;
+    right: -232px;
+    bottom: -60px;
+    z-index: 1;
+  }
+.head-chef{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  margin-bottom: 60px;
+  .left-side{
+    display: flex;
+    flex-direction: column-reverse;
+    background: #ffffff;
+    width: 42%;
+    img{
+      max-width: 100%;
+    }
+  }
+  .right-side{
+    padding: 30px 50px;
+    width: 58%;
+    background: #3f3c37;
+    h3{
+      font-size: 30px;
+      color: #ffffff;
+      a{
+        &:hover{
+          color: @theme-one;
+        }
+      }
+    }
+    .type{
+      text-transform: uppercase;
+      .lato-bold;
+      font-size: 13px;
+      color: #9d9a95;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .expertise{
+      display: inline-block;
+      .lato-bold;
+      text-transform: uppercase;
+
+      li{
+        margin-right: 25px;
+        display: inline-block;
+        font-size: 13px;
+        color: #9d9a95;
+        margin-bottom: 25px;
+        a{
+          display: inline-block;
+          &:hover{
+            color: #ffffff;
+          }
+          &:hover{
+            .icon-svg{
+              fill: #ffffff;
+            }
+          }
+        }
+        img{
+          vertical-align: bottom;
+          margin-right: 5px;
+        }
+      }
+      &:before{
+        display: inline-block;
+        content: "experts in:";
+        text-transform: uppercase;
+        color: #ffffff;
+        margin-right: 10px;
+        margin-bottom: 25px;
+      }
+      .icon-container{
+        vertical-align: -14px;
+      }
+      .icon-svg{
+        fill: #9d9a95;
+        .transition-200ms;
+      }
+
+    }
+    .separator-chef{
+      width: 100%;
+      height: 1px;
+      background: #4c4944;
+      margin-bottom: 25px;
+    }
+    p{
+      color: #9d9a95;
+      font-size: 16px;
+      line-height: 30px;
+    }
+
+  }
+}
+}
+.social-icons-chef{
+  vertical-align: top;
+  display: inline-block;
+  float: right;
+  li{
+    display: table-cell;
+
+    a{
+      display: inline-block;
+      width: 38px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: #9d9a95;
+      font-size: 18px;
+      margin-left: -1px;
+      &:hover{
+        color: #ffffff;
+      }
+    }
+  }
+}
+.wrapper-chef-team{
+  margin-left: -3%;
+}
+.chef-team{
+  overflow: hidden;
+
+.single-chef{
+  position: relative;
+}
+
+  >li{
+    margin-bottom: 30px;
+    width: 22%;
+    float: left;
+    margin-left: 3%;
+    a{
+      position: relative;
+
+    }
+    img{
+      width: 100%;
+    }
+    &:nth-child(2n+1){
+
+      .chef-detail{
+        left: 100%;
+        &:before{
+          left: 0;
+
+        }
+      }
+
+      &:hover{
+
+
+      .chef-detail{
+
+        visibility: visible;
+        opacity: 1;
+        &:before{
+          left: -9px;
+          transition-delay: .2s;
+
+        }
+      }
+      }
+    }
+    &:nth-child(2n+2){
+      .chef-detail{
+        right: 100%;
+        &:before{
+          right: 0;
+        }
+      }
+
+      &:hover{
+
+        .chef-detail{
+
+          visibility: visible;
+          opacity: 1;
+          //        left: 100%;
+          &:before{
+            right: -9px;
+            transition-delay: .2s;
+
+          }
+        }
+      }
+    }
+    &:hover{
+      .chef-detail{
+        .transition-200ms;
+        width: 115%;
+        h4{
+          top: 0;
+
+        }
+        .type{
+          transition-delay: .1s;
+          top: 0;
+        }
+        p{
+          transition-delay: .2s;
+          opacity: 1;
+        }
+        .social-icons-chef{
+          transition-delay: .3s;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  .chef-detail{
+    opacity: 0;
+    visibility: hidden;
+//    overflow: hidden;
+    position: absolute;
+    top: 0;
+    background-color: #3f3c37;
+    height: 100%;
+    width: 0;
+
+    z-index: 2;
+    h4,.type{
+      position: relative;
+      top: -150px;
+      .transition-400ms;
+
+    }
+    p{
+      .transition-400ms;
+     opacity: 0;
+    }
+    h4{
+      font-size: 18px;
+      color: #ffffff;
+    }
+    .type{
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #9d9a95;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+    p{
+      color: #9d9a95;
+    }
+    .social-icons-chef{
+      .transition-200ms;
+      margin-top: 20px;
+      position: relative;
+      bottom: -300px;
+    }
+    &:before{
+      .transition-200ms;
+      content: "";
+      display: inline-block;
+      border: 9px solid #3f3c37;
+      transform: rotate(45deg);
+      //      border: 9px solid #3f3c37;
+
+      position: absolute;
+      top: 25px;
+      z-index: 3;
+    }
+  }
+  .chef-detail-inner{
+    overflow: hidden;
+    padding: 25px;
+
+  }
+}
+
+/*--------------------*/
+/* chefs banner
+/*--------------------*/
+.chefs-banner{
+  background-image: url("../images/temp-images/chefs-banner.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  position: relative;
+  overflow: hidden;
+
+  .bg-chef-video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    z-index: 10;
+  }
+  &.video-banner{
+//    .chefs-card{
+//      transition: left .5s, transform 2s;
+//
+//      transform: scale(0);
+//      left: -1000px;
+//    }
+//    &:hover{
+//      .chefs-card{
+//        transform: scale(1);
+//        transition: transform .5s, left 0s;
+//        left: 0;
+//      }
+//    }
+  }
+}
+
+.wrapper-bg-video{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  background: #ffffff;
+//  height: 100%;
+
+}
+.chefs-card{
+
+  position: relative;
+  z-index: 12;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  max-width: 410px;
+  background: #ffffff;
+  padding: 15px;
+  color: #000000;
+  h2{
+    .lato-black;
+    text-transform: uppercase;
+    font-style: normal;
+    line-height: 36px;
+    margin-bottom: 20px;
+  }
+}
+.chefs-card-inner{
+  border: 1px solid #e4d9d1;
+  padding: 20px 30px;
+  .short-separator{
+    margin-bottom: 30px;
+  }
+  img{
+    margin-bottom: 25px;
+  }
+  p{
+    .font-karla;
+    margin-bottom: 25px;
+  }
+  .read-more-bordered{
+    margin-bottom: 25px;
+  }
+}
+/*-----------------------------------------------------------------------------------*/
+/* our chefs ends
+/*-----------------------------------------------------------------------------------*/

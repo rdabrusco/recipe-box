@@ -1,0 +1,208 @@
+/*-----------------------------------------------------------------------------------*/
+/* Listing list & grid
+/*-----------------------------------------------------------------------------------*/
+.listing{
+  margin-bottom: 60px;
+  display: flex;
+  background: #ffffff;
+  color: #000000;
+  .icon-svg{
+    fill: @theme-one;
+  }
+  .image{
+    width: 31%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(228,228,228,.5);
+      a{
+        &:hover{
+          opacity: .7;
+        }
+      }
+    img{
+      max-width: 100%;
+    }
+  }
+  .detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 69%;
+    border: 1px solid #e4d9d1;
+    margin: 10px;
+    padding: 20px 25px;
+    h4{
+      line-height: 30px;
+      margin-top: 0;
+      .lato-black;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-style: normal;
+      position: relative;
+      padding-bottom: 20px;
+      &:after{
+        content: "";
+        display: inline-block;
+        width: 50px;
+        height: 3px;
+        background: #6ebe3b;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+      a{
+        display: inline-block;
+        &:hover{
+          color: @theme-tag;
+        }
+      }
+    }
+    p{
+      font-size: 15px;
+      line-height: 26px;
+    }
+    .chef-social-links{
+      text-align: right;
+      li{
+        display: inline-block;
+        margin-left: 15px;
+        a{
+          font-size: 18px;
+          display: inline-block;
+          &:hover{
+            color: @theme-tag;
+            transform: scale(1.5);
+          }
+        }
+      }
+    }
+  }
+
+  .meta-listing{
+    display: flex;
+    justify-content: space-between;
+    .post-meta{
+      flex: 1;
+      margin-bottom: 0;
+      li{
+        margin-right: 12px;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+    .rating-box{
+      flex: 1;
+      padding: 0;
+      text-align: right;
+    }
+  }
+}
+
+.recipe-listing{
+  .listing{
+    margin-bottom: 30px;
+  }
+}
+
+.listing-list{
+  .listing{
+    .detail{
+      h4{
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+
+.listing-grid{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .listing{
+    text-align: center;
+    flex-direction: column;
+    width: 31%;
+    .image,.detail{
+      width: auto;
+    }
+
+    .detail{
+      padding: 20px 15px;
+      h4{
+        margin-bottom: 15px;
+        &:after{
+          left: 50%;
+          margin-left: -25px;
+        }
+      }
+      p{
+        display: none;
+      }
+      .meta-listing{
+        flex-direction: column;
+        .post-meta{
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+
+
+  }
+}
+
+.banner-add{
+  text-align: center;
+  width: 100%;
+  margin-bottom: 40px;
+  img{
+    max-width: 100%;
+  }
+}
+.page-nav{
+  width: 100%;
+}
+
+.recipe-set{
+  .listing-buttons{
+    float: right;
+    display: inline-block;
+    background: #f8f6f5;
+    overflow: hidden;
+    position: relative;
+    z-index: 6666 ;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    span{
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      width: 33px;
+      height: 29px;
+      line-height: 27px;
+      border: 1px solid #e4d9d1;
+      color: #9e938e;
+      .transition-200ms;
+
+      &:hover{
+        background: @theme-one;
+        border-color: @theme-one;
+        color: #ffffff;
+      }
+
+    }
+    .grid{
+      margin-right: 3px;
+    }
+    .current{
+      background: @theme-one;
+      border-color: @theme-one;
+      color: #ffffff;
+    }
+  }
+}
+/*-----------------------------------------------------------------------------------*/
+/* Listing list & grid ends
+/*-----------------------------------------------------------------------------------*/

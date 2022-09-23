@@ -7,10 +7,14 @@ html, body{
     display: flex;
 }
 
+
+
 .column{
     flex-direction: column;
 }
-
+.block {
+    display: block;
+}
 .recipe{
     justify-content: center;
     align-items: center;
@@ -52,4 +56,5 @@ html, body{
 main{
     height: 40%;
 }
+
 

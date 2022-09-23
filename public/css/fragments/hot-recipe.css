@@ -1,0 +1,22 @@
+/*-----------------------------------------------------------------------------------*/
+/* hot recipes
+/*-----------------------------------------------------------------------------------*/
+.hot-row {
+  height: 368px;
+  display: flex;
+}
+.full-image img {
+  width: 100%;
+}
+.full-image figure {
+  position: relative;
+}
+.full-image figure figcaption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  font-size: 24px;
+  padding: 25px 30px;
+}

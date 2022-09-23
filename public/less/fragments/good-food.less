@@ -1,0 +1,137 @@
+/*-----------------------------------------------------------------------------------*/
+/* good food home page
+/*-----------------------------------------------------------------------------------*/
+.good-food{
+  margin-bottom: 80px;
+}
+.good-food-box{
+  display: flex;
+
+  .button-default{
+//    margin-bottom: 10px;
+  }
+}
+
+.text-side{
+  width: 42%;
+}
+.image-side{
+  width: 58%;
+  display: flex;
+  align-items: flex-end;
+}
+.good-food-intro{
+  .heading-small,h2{
+    .lora-bold-italic;
+    color: @heading-color;
+
+  }
+  .heading-small{
+    font-size: 24px;
+  }
+  h2{
+    margin-bottom: 25px;
+    margin-top: 0;
+    font-size: 48px;
+    .bottom-line (30px);
+  }
+  .emphasis{
+    .lora-normal-italic;
+    font-size: 21px;
+    line-height: 30px;
+    color: #3d8f09;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+}
+
+.good-food-image{
+  img{
+    width: 100%;
+  }
+}
+
+.good-food-list{
+  margin-bottom: 25px;
+  li{
+    color: #68645d;
+    .lato-regular;
+    font-size: 15px;
+    display: block;
+    border-bottom: 1px solid #efeeee;
+    padding: 15px 0;
+    position: relative;
+    padding-left: 55px;
+    &:last-child{
+      border: none;
+    }
+    span{
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      top: 10px;
+      min-height: 40px;
+    }
+    a{
+      display: inline-block;
+      &:hover{
+        color: @theme-one-dark;
+      }
+    }
+
+  }
+
+
+}
+
+/*--------------------*/
+/* good food variation 1
+/*--------------------*/
+.good-food-var1{
+  .wrapper-good-food{
+    background: #f8f6f1;
+    border-top: 2px solid #000000;
+    margin-top: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .single-item{
+    margin-bottom: 20px;
+   padding: 10px 30px;
+  }
+  .food-icon{
+    display: inline-block;
+    width: 82px;
+    height: 82px;
+    line-height: 80px;
+    text-align: center;
+    border: 1px solid #68645d;
+    border-radius: 50%;
+  }
+  h2{
+    font-size: 36px;
+    margin-top: 10px;
+  }
+  .heading-small{
+    font-size: 24px;
+    .lora-bold-italic;
+    color: @heading-color;
+  }
+  h3{
+    font-size: 18px;
+    margin-top: 30px;
+    a{
+      &:hover{
+        color: @theme-one-dark;
+      }
+    }
+  }
+  p{
+    .font-karla;
+  }
+}
+/*-----------------------------------------------------------------------------------*/
+/* good food ends
+/*-----------------------------------------------------------------------------------*/
+
+

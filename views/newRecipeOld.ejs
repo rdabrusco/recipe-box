@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Add a New Recipe</title>
+</head>
+<body>
+    <section class="top">
+        <h1>Add a Recipe</h1>
+    </section>
+
+    <section class="form">
+        <form action="./addNewRecipe" method="POST">
+            <div class="formLayout-section">
+                <fieldset class="flex block"> 
+                 
+
+                    <div class="formLayout-inputs block">
+                        <div class="formLayout-input">
+                            <label for="title">Recipe Title</label>
+                            <input type="text" id="title" name="title">
+                        </div>
+                        
+                        <div class="formLayout-input">
+                            <label for="description">Recipe description</label>
+                            <textArea type="description" id="description" name="description" placeholder="Put a simple recipe description here."></textArea>
+                        </div>
+                    </div>
+                    <div class="upload-photo block">
+                        <label for="imgUpload" class="form-label">Photo</label>
+                        <input type="file" class="form-control" id="imageUpload" name="img">
+                        <p>Use JPEG or PNG. Must be at least 960 x 960.</p>
+                    </div>
+
+                </fieldset>
+            </div>
+            <div class="formLayout-section">
+                <fieldset class="flex"> 
+                    <legend>
+                        <h2>Ingredients</h2>
+                    </legend>
+                    <p>Enter One ingredient per line. Include the amount, unit (cups, tablespoons), and any special preparation (chopped, melted, softened, cut in cubes).</p>
+
+                    <div class="formLayout-inputs">
+                        <div class="formLayout-input">
+                            <input type="text" name="ingredients[1]" placeholder="e.g. 3 cups flour, sifted" data-type="ingredients">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="formLayout-input">
+                            <input type="text" name="ingredients[2]" placeholder="e.g. 3 tablespoons butter, melted" data-type="ingredients">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="formLayout-input">
+                            <input type="text" name="ingredients[3]" placeholder="e.g. 1 1/2 teaspoons instant yeast" data-type="ingredients">
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+                    
+                </fieldset>
+            </div>
+            <div class="formLayout-section">
+                <fieldset class="flex"> 
+                    <legend>
+                        <h2>Directions</h2>
+                    </legend>
+                    <p>Explain how to make your recipe, including oven temperatures, cook times, pan sizes, etc.</p>
+
+                    <div class="formLayout-inputs">
+                        <div class="formLayout-input">
+                            <span>Step 1</span>
+                            <textarea type="text" name="directions[1]" placeholder="e.g. Preheat oven to 375 degrees F..." data-type="directions"></textarea>
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="formLayout-input">
+                            <span>Step 2</span>
+                            <textarea type="text" name="directions[2]" placeholder="e.g. Mix flour and water..." data-type="directions"></textarea>
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                        <div class="formLayout-input">
+                            <span>Step 3</span>
+                            <textarea type="text" name="directions[3]" placeholder="e.g. Bake for 25 mins..." data-type="directions"></textarea>
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+                    
+                </fieldset>
+            </div>
+            <div class="formLayout-section">
+                <fieldset class="flex"> 
+                    <label for="servings">Servings</label>
+                    <input type="text" id="servings" name="servings" placeholder="e.g. 6">
+
+                </fieldset>
+            </div>
+            <div class="formLayout-section">
+                <fieldset class="flex"> 
+                    <fieldset>
+                        <label for="prepTime">Prep Time</label>
+                        <input type="number" name="prepTime" id="prepTime">
+                        <select name="prepTimeMHD" id="prepTimeMHD">
+                            <option value="mins">mins</option>
+                            <option value="hours">hours</option>
+                            <option value="days">days</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label for="cookTime">Cook Time</label>
+                        <input type="number" name="cookTime" id="cookTime">
+                        <select name="cookTimeMHD" id="cookTimeMHD">
+                            <option value="mins">mins</option>
+                            <option value="hours">hours</option>
+                            <option value="days">days</option>
+                        </select>
+                    </fieldset>
+                </fieldset>
+            </div>
+            <div class="formLayout-section">
+                <fieldset class="flex"> 
+                        <label for="tags">Course/Tags</label>
+                        <input type="text" name="tags" id="tags">
+                </fieldset>
+            </div>
+            <input type="submit" value="Submit Recipe">
+        </form>
+    </section>
+    
+    
+</body>
+</html>

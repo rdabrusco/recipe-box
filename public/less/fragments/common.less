@@ -1,0 +1,493 @@
+@import "variables.less";
+
+
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/* classes and mixins
+/*-----------------------------------------------------------------------------------*/
+/*--------------------*/
+/* mixins
+/*--------------------*/
+.bottom-line (@line){
+  position: relative;
+  &:after{
+    content: "";
+    width: @line;
+    height: 3px;
+    background: @theme-one;
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+  }
+}
+
+.placeholder-lora{
+  ::-webkit-input-placeholder {
+    .font-lora;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    .font-lora;
+
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    .font-lora;
+
+  }
+
+  :-ms-input-placeholder {
+    .font-lora;
+
+  }
+}
+
+.placeholder-lora-italic{
+  ::-webkit-input-placeholder {
+    .font-lora-italic;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    .font-lora-italic;
+
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    .font-lora-italic;
+
+  }
+
+  :-ms-input-placeholder {
+    .font-lora-italic;
+
+  }
+}
+
+.placeholder-lato-bold{
+  ::-webkit-input-placeholder {
+    .lato-bold;
+    color: #514b49;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    .lato-bold;
+    color: #514b49;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    .lato-bold;
+    color: #514b49;
+  }
+
+  :-ms-input-placeholder {
+    .lato-bold;
+    color: #514b49;
+  }
+}
+
+.placeholder-col(@color){
+  ::-webkit-input-placeholder {
+    color: @color;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: @color;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: @color;
+  }
+
+  :-ms-input-placeholder {
+    color: @color;
+  }
+}
+
+.place-holder-asterisk(@color){
+
+  &::-webkit-input-placeholder:after {
+    content: "*";
+    color: @color;
+  }
+  &::-moz-placeholder:after {
+    content: "*";
+    color: @color
+  }
+  &:-ms-input-placeholder:after {
+    content: "*";
+    color: @color;
+  }
+  &input:-moz-placeholder:after {
+    content: "*";
+    color: @color;
+  }
+
+}
+
+.slick-slide,.slick-current{
+  outline: none;
+}
+/*--------------------*/
+/* heading bottom line
+/*--------------------*/
+
+.bottom-line,.bottom-line-large{
+  position: relative;
+  &:after{
+    content: "";
+    height: 3px;
+    background: @theme-one;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+  }
+}
+
+.bottom-line{
+  &:after{
+    width: 30px;
+  }
+}
+.bottom-line-large{
+  &:after{
+    width: 50px;
+  }
+}
+/*--------------------*/
+/* font lora
+/*--------------------*/
+.font-lora{
+  font-family: 'Lora', serif;
+}
+
+.font-lora-italic{
+  .font-lora;
+  font-style: italic;
+}
+
+.lora-bold-italic{
+  .font-lora-italic;
+  font-weight: 700;
+}
+.lora-normal-italic{
+  .font-lora-italic;
+  font-weight: 400;
+}
+
+/*--------------------*/
+/* font lato
+/*--------------------*/
+
+.font-lato{
+  font-family: 'Lato', sans-serif;
+
+}
+.lato-bold{
+  .font-lato;
+  font-weight: 700;
+}
+.lato-regular{
+  .font-lato;
+  font-weight: 400;
+}
+
+.lato-black{
+  .font-lato;
+  font-weight: 900;
+}
+
+/*--------------------*/
+/* font awesome
+/*--------------------*/
+
+.font-awesome{
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+.font-awesome-positioned{
+  .font-awesome;
+  position: absolute;
+  left: 0;
+}
+
+/*--------------------*/
+/* font karla
+/*--------------------*/
+.font-karla{
+  font-family: 'Karla', sans-serif;
+}
+
+/*--------------------*/
+/* font montserrat
+/*--------------------*/
+.mont-regular{
+  font-family: 'Montserrat', sans-serif;
+}
+/*--------------------*/
+/* transitions
+/*--------------------*/
+
+.transition-200ms{
+  transition: .2s all ease-in-out;
+
+}
+.transition-300ms{
+  transition: .3s all ease-in-out;
+
+}
+.transition-400ms{
+  transition: .4s all ease-in-out;
+}
+
+.transition-500ms{
+  transition: .5s all ease-in-out;
+}
+
+
+
+/*--------------------*/
+/* padding off
+/*--------------------*/
+.padding-right-off{
+  padding-right: 0;
+}
+.padding-left-off{
+  padding-left: 0;
+}
+/*-----------------------------------------------------------------------------------*/
+/*common
+/*-----------------------------------------------------------------------------------*/
+html{
+  overflow-x: hidden;
+}
+body{
+  overflow-x: hidden;
+}
+h1,h2,h3,h4,h5{
+  .lora-bold-italic;
+  color: @heading-color;
+  a{
+  display: inline-block;
+}
+}
+nav{
+  ul{
+    display: inline-block;
+  }
+  li{
+    display: inline-block;
+  }
+  a{
+    display: inline-block;
+  }
+}
+a{
+  outline: none !important;
+  text-decoration: none;
+  color: inherit;
+  .transition-200ms;
+  &:hover{
+    text-decoration: none;
+  }
+  &:focus{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+button{
+  outline: none;
+}
+p{
+  .lato-regular;
+  font-size: 14px;
+  line-height: 24px;
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+.sb-line{
+  position: relative;
+  &:after{
+    width: 30px;
+    height: 3px;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+  }
+}
+
+.lined{
+  position: relative;
+  overflow: hidden;
+  &:after{
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    background: #e7e3e1;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* margins
+/*-----------------------------------------------------------------------------------*/
+.common-mb{
+  margin-bottom: 30px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* page loader
+/*-----------------------------------------------------------------------------------*/
+.preloader  {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 9999999;
+  height: 100%;
+}
+
+.loadr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  margin: -16px 0 0 -16px;
+}
+.loadr svg {
+  position: relative;
+  z-index: 10;
+  height: 32px;
+  animation: bounce-ldr 1s cubic-bezier(0.51, 0.23, 0.02, 0.96) infinite;
+  fill: #6c6;
+}
+.loadr:after {
+  position: absolute;
+  bottom: 1px;
+  left: 4px;
+  display: block;
+  width: 22px;
+  height: 4px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 100%;
+  animation: shadow 1s infinite;
+  content: '';
+}
+@-webkit-keyframes bounce-ldr {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.85, 1.1) translateY(-15px);
+  }
+}
+@-moz-keyframes bounce-ldr{
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.85, 1.1) translateY(-15px);
+  }
+}
+@-o-keyframes bounce-ldr{
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.85, 1.1) translateY(-15px);
+  }
+}
+@keyframes bounce-ldr{
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.85, 1.1) translateY(-15px);
+  }
+}
+
+@-webkit-keyframes shadow {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.7, 1);
+    background: rgba(0,0,0,0.05);
+  }
+}
+@-moz-keyframes shadow{
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.7, 1);
+    background: rgba(0,0,0,0.05);
+  }
+ }
+@-o-keyframes shadow{
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.7, 1);
+    background: rgba(0,0,0,0.05);
+  }
+}
+@keyframes shadow{
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0.7, 1);
+    background: rgba(0,0,0,0.05);
+  }
+}
+
+.fade-load-left,.fadeInRight,.fadeInUp,.fade-load-down{
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animation-delay100ms {
+  animation-delay: .1s;
+}
+.animation-delay200ms {
+  animation-delay: .2s;
+}
+.animation-delay300ms {
+  animation-delay: .3s;
+}
+.animation-delay400ms {
+  animation-delay: .4s;
+}
+.animation-delay500ms {
+  animation-delay: .5s;
+}
+.animation-delay600ms {
+  animation-delay: .6s;
+}
+.animation-delay700ms {
+  animation-delay: .7s;
+}
+.animation-delay800ms {
+  animation-delay: .8s;
+}
+
+.disable-wow{
+animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}

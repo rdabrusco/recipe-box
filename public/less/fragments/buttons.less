@@ -1,0 +1,98 @@
+@import "variables.less";
+
+/*-----------------------------------------------------------------------------------*/
+/* buttons
+/*-----------------------------------------------------------------------------------*/
+.hovered-theme-button{
+  height: 40px;
+  text-align: center;
+  padding-left: 18px;
+  padding-right: 18px;
+  background: @theme-one;
+  color: #ffffff;
+  .font-lora-italic;
+  font-size: 16px;
+}
+
+.button-default{
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+  .font-lora-italic;
+  font-size: 16px;
+  min-width: 193px;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+.theme-filled{
+  background: @theme-one;
+  color: #ffffff;
+  &:hover{
+    background: #000000;
+    color: #ffffff;
+  }
+}
+
+.video-button{
+  &:before{
+    font-family: FontAwesome;
+    content: "\f16a";
+    font-style: normal;
+    margin-right: 10px;
+  }
+}
+
+.hollow-button{
+  border: 1px solid #000000;
+  &:hover{
+    background: #000000;
+    color: #ffffff;
+  }
+}
+
+
+.read-more-bordered{
+
+  display: inline-block;
+  height: 30px;
+  line-height: 28px;
+  .lora-bold-italic;
+  padding: 0 15px;
+  text-transform: capitalize;
+  border: 1px solid #000000;
+  &:hover{
+    background: #000000;
+    color: #ffffff;
+  }
+}
+
+.button-dark{
+  background: #000000;
+  .lora-bold-italic;
+  font-size: 16px;
+  color: #ffffff;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 36px;
+  &:hover{
+    background: @theme-tag;
+    color: #ffffff;
+  }
+}
+.read-more-angle{
+  .lora-normal-italic;
+  font-size: 15px;
+  &:after{
+    font-family: FontAwesome;
+    content: "\f101";
+    font-size: 15px;
+    font-style: normal;
+    margin-left: 5px;
+  }
+  &:hover{
+    color: @theme-tag;
+  }
+}

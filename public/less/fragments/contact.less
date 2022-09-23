@@ -1,0 +1,151 @@
+/*-----------------------------------------------------------------------------------*/
+/* contact page
+/*-----------------------------------------------------------------------------------*/
+.recipes-home-body {
+  &.inner-page{
+    padding-top: 60px;
+  }
+}
+.contact-container{
+  background: #ffffff;
+  padding: 30px;
+  h3{
+    .lato-bold;
+    font-style: normal;
+    font-size: 16px;
+    color: #514b49;
+    margin-bottom: 40px;
+    position: relative;
+    &:after{
+      content: "";
+      display: inline-block;
+      width: 48px;
+      height: 3px;
+      background: @theme-one-dark;
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+    }
+  }
+  p,.contact-options{
+    .lato-regular;
+    font-size: 15px;
+    color: #514b49;
+  }
+  .contact-options{
+    margin-top: 30px;
+    span{
+      font-weight: 700;
+    }
+    li{
+      padding-left: 30px;
+      position: relative;
+      margin-bottom: 13px;
+      &:before{
+        font-family: FontAwesome;
+        position: absolute;
+        left: 0;
+        top: 0;
+        line-height: 20px;
+        font-size: 21px;
+      }
+    }
+    .phone{
+      &:before{
+        content: "\f098";
+      }
+    }
+    .fax{
+      &:before{
+        content: "\f1ac";
+        font-size: 18px;
+      }
+    }
+    .email{
+      &:before{
+        content: "\f199";
+      }
+    }
+  }
+}
+.contact-option-single{
+  margin-bottom: 50px;
+}
+
+#contact-form{
+  padding-right: 35px;
+  .placeholder-lato-bold;
+  input,textarea{
+    width: 100%;
+    margin-bottom: 29px;
+    border: 1px solid #e4d9d1;
+    outline: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 16px;
+    &:focus{
+      border-color: @theme-tag;
+    }
+  }
+  .required{
+    .place-holder-asterisk(#e60000);
+
+  }
+  input{
+    height: 40px;
+
+  }
+  textarea{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 90px;
+    resize: none;
+  }
+  button{
+    background: @theme-one;
+    color: #ffffff;
+    .lora-normal-italic;
+    font-size: 16px;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    padding: 9px 38px;
+    .transition-200ms;
+    &:hover{
+      background: #000000;
+    }
+  }
+  .error{
+    border-color: @theme-tag;
+  }
+}
+#map_canvas{
+  height: 368px;
+}
+
+.error-container{
+  margin-top: 20px;
+  .error{
+    display: block;
+    color: @theme-tag;
+    .font-lato;
+    font-size: 14px;
+    text-transform: capitalize;
+  }
+}
+#contact-loader{
+  display: none;
+  vertical-align: -7px;
+  margin-left: 5px;
+}
+#message-sent{
+  margin-top: 20px;
+  display: block;
+  color: @theme-one;
+  .font-lato;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+/*-----------------------------------------------------------------------------------*/
+/* contact page ends
+/*-----------------------------------------------------------------------------------*/

@@ -1,0 +1,260 @@
+@media (max-width: 600px){
+  .recipe-box{
+    flex-direction: column;
+    margin-bottom: 50px;
+    width: 100%;
+    .intro{
+      order: 2;
+    }
+    .intro,.image{
+      width: 100%;
+    }
+  }
+  .hot-row {
+    .col-size{
+      margin-bottom: 0;
+    }
+    .full-image{
+      margin-bottom: 50px;
+    }
+  }
+
+  .container-tags ul{
+    display: block;
+    float: none;
+    padding-top: 20px;
+    li{
+      margin-left: 0;
+      margin-right: 30px;
+      margin-bottom: 20px;
+    }
+  }
+  .news-single {
+    .news-visuals{
+      height: 146px;
+    }
+  }
+  .wrapper-chef-team{
+    margin-left: auto;
+  }
+  .chef-team > li{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .chef-team .chef-detail{
+    width: 100%;
+  }
+  .chef-team > li{
+    float: none;
+      .chef-detail{
+        right: auto;
+        left: 0 !important;
+        &:before{
+          display: none;
+        }
+      }
+    &:hover {
+
+      .chef-detail{
+        right: auto;
+        left: 0;
+      }
+    }
+
+  }
+  .slider-recipe-detail{
+    flex-direction: column;
+.wrapper-slider-detail,.recipe-specs{
+  width: 100%;
+}
+    .recipe-specs{
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      li{
+        padding: 10px 0;
+        min-width: 100px;
+        border: 1px solid #e4d9d1 ;
+        margin-left: -1px;
+        margin-top: -1px;
+      }
+    }
+  }
+
+  .listing {
+    .meta-listing{
+      flex-direction: column;
+      .post-meta{
+        margin-bottom: 10px;
+      }
+      .rating-box{
+        text-align: left;
+      }
+    }
+  }
+
+  .chef-team > li:hover .chef-detail{
+    width: auto;
+  }
+}
+
+@media (max-width: 500px){
+  .recipe-banner{
+    padding-left: 25px;
+
+    img{
+      position: relative;
+      left: 0;
+      margin-bottom: 25px;
+      max-width: 100%;
+    }
+  }
+  .news-single {
+    width: 100%;
+    .news-visuals{
+      height: auto;
+    }
+  }
+
+  .custom-col-xxs{
+    width: 100%;
+  }
+
+  .post-author{
+    display: block;
+    .avatar{
+      margin-bottom: 20px;
+    }
+    .avatar,.detail{
+      width: auto;
+    }
+    .detail{
+      .social-icons{
+        float: none;
+      }
+    }
+  }
+
+  .comments-list {
+    li {
+      .comment-inner{
+        display: block;
+        .gravator{
+          width: auto;
+          margin-bottom: 20px;
+        }
+        .detail{
+          width: auto;
+        }
+      }
+      ul{
+        margin-left: 0;
+      }
+    }
+  }
+
+
+  .hot-recipes-var2 {
+    .hot-row{
+      flex-direction: column;
+      .col-size{
+        margin-bottom: 30px;
+      }
+    }
+    .split-images-var2 {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  .boxed-recipes {
+    justify-content: center;
+    .recipe-single{
+      width: 90%;
+    }
+  }
+
+  .recipe-detail-body{
+    padding: 25px 10px;
+  }
+
+  .recipe-comments {
+    .avatar {
+      float: none;
+    }
+  }
+
+  .slider-recipe-detail2 {
+    .slider-video-button{
+      position: relative;
+      top: 0;
+      right: 0;
+      margin-top: 20px;
+    }
+  }
+
+  .tab-container {
+    ul {
+      flex-direction: column;
+      li{
+        border-bottom: 1px solid #ffffff;
+        width: 100%;
+      }
+    }
+  }
+
+  .our-chefs {
+    .chef-single{
+      width: 100%;
+      &:hover{
+        img{
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+
+}
+
+
+@media (max-width: 400px){
+  .chef-single,.news-single{
+    width: 100%;
+  }
+//  .news-single {
+//    .news-visuals{
+//      height: auto;
+//    }
+//  }
+
+  .post-single {
+    .prev-next-links {
+      li{
+        font-size: 11px;
+        vertical-align: top;
+      }
+    }
+  }
+
+  .chef-team > li{
+    width: 100%;
+  }
+  .chefs-card{
+    h2{
+      font-size: 22px;
+    }
+  }
+
+  .tabs-container{
+    .left-side,.right-side{
+      width: 100%;
+    }
+    .left-side{
+      margin-bottom: 10px;
+    }
+    .right-side{
+      padding-left: 0;
+    }
+  }
+}

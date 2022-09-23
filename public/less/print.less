@@ -1,0 +1,40 @@
+@media print {
+.banner-login-wrapper,.buttons-steps,.top-nav,.banner,.slider-video-button,.advance-search,aside,.wrapper-slider-nav,.recipe-media,.tags-icons,.separator-post,.related-recipes,.chef-social-links,.comment-form,.footer{
+  display: none;
+}
+  .recipes-home-body.inner-page{
+    padding-top: 0;
+  }
+  .recipe-detail-body {
+    margin-bottom: 0;
+    .print-button{
+      display: none;
+
+    }
+  }
+  p{
+//    font-size: 11pt !important;
+  }
+  .recipe-steps{
+    page-break-inside: avoid;
+  }
+  .tips-variations{
+    page-break-inside: avoid;
+    margin-bottom: 0;
+  }
+  .listing .image{
+    display: none;
+  }
+  .recipe-comments{
+    page-break-inside: avoid;
+  }
+  .slider-recipe-detail2 .slider-video-button{
+    display: none;
+  }
+  .recipe-detail-body .rating-box{
+    display: none;
+  }
+  .steps-detail .single-detail{
+    border-bottom: 1px solid #c9d6bf;
+  }
+}

@@ -1,25 +1,89 @@
+const cloudinary = require("../middleware/cloudinary");
 const Recipe = require('../models/Recipe')
 
 
 module.exports = {
     newRecipe: (req,res)=>{
-        res.render('newRecipe.ejs',{})
+        console.log('test')
+        res.render('newRecipe.ejs', {user: req.user.id})
     },
+    listRecentRecipes: async (req, res) => {
+        try {
+          const recipes = await Recipe.find().sort({ createdAt: "desc" }).lean();
+          res.render("allRecipes.ejs", { recipes: recipes });
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      listAllRecipes: async (req, res) => {
+        try {
+          const recipes = await Recipe.find().sort({ createdAt: 1 }).lean();
+          res.render("allRecipes.ejs", { recipes: recipes });
+        } catch (err) {
+          console.log(err);
+        }
+      },
     addNewRecipe: async (req, res)=>{
         try{
-            console.log(req.body)
-            // await Review.create({
-            //     review: req.body.reviewFromJs, 
-            //     rating: req.body.ratingFromJs, 
-            //     postId: req.body.postIdFromJs, 
-            //     userId: req.user.id})
+
+            console.log( req.file )
+            const result = await cloudinary.uploader.upload(req.file.path);
+            
+            const body = req.body
+            let ingredients = []
+            let tips = []
+            if(!Array.isArray(body.ingredients)){
+                 ingredients.push(body.ingredients)
+                 body.ingredients = ingredients
+            }
+            if(body.tips.length !== 0 && !Array.isArray(body.tips)){
+                tips.push(body.tips)
+                body.tips = tips
+           }
+            if(Array.isArray(body.steps)){
+                body.steps = body.steps.map(el => el.trim())
+            }
+            if(Array.isArray(body.tips)){
+                body.tips = body.tips.map(el => el.trim())
+            }
+            // const tags = req.body.tags.split(" ")
+
+            const response = await Recipe.create({
+                title: body.title, 
+                source: body.source,
+                shortDes: body.shortDes,
+                fullDes: body.fullDes,
+                img: result ? result.secure_url : "",
+                cloudinaryId: result ? result.public_id : "",
+                ingredients: body.ingredients, 
+                directions: body.directions,
+                prepTime: body.prepTime,
+                prepTimeMHD: body.prepTimeMHD,
+                cookTime: body.cookTime,
+                cookTimeMHD: body.cookTimeMHD,
+                totalTime: body.totalTime,
+                totalTimeMHD: body.totalTimeMHD,
+                servings: body.servings,
+                yield: body.yield,
+                tips: body.tips,
+                likes: 0,
+                userId: req.user.id})
             // console.log(req.body)
-            // console.log('Review has been added!')
-            // res.json('Added It')
+            console.log(response)
+            res.redirect(`/recipes/allRecipes/${response._id}`)
         }catch(err){
             console.log(err)
         }
     },
+    getRecipe: async (req, res) => {
+        try {
+          const recipe = await Recipe.findById(req.params.id);
+        //   const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
+          res.render("recipe-detail.ejs", { recipe: recipe, user: req.user});
+        } catch (err) {
+          console.log(err);
+        }
+      },
     editReview: async (req,res)=>{
         try{
             const reviewItem = await Review.findById(req.params.id)
@@ -55,6 +119,7 @@ module.exports = {
             console.log(err)
         }
     },
+
     allReviews: async (req,res)=>{
         console.log(req.user)
         try{
