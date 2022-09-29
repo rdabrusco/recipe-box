@@ -4396,6 +4396,11 @@ div.widget-measurements .default-btn {
 .error-container {
   margin-top: 20px;
 }
+.fa-trash, .fa-pen-to-square{
+  font-size: 2.5rem;
+}
+
+
 .error-container .error {
   display: block;
   color: #c1452b;

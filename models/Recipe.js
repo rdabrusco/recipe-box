@@ -18,6 +18,10 @@ const RecipeSchema = new mongoose.Schema({
         type: String,
     },
 
+    file: {
+        type: String,
+    },
+
     img: {
       type: String,
     },
@@ -76,6 +80,10 @@ const RecipeSchema = new mongoose.Schema({
     servings: {
         type: String,
     },
+
+    yield: {
+        type: String
+    },
     
     tips: {
         type: Array,
@@ -98,6 +106,10 @@ const RecipeSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+
+    editedAt: {
+        type: Date,
+    }
 
   
     

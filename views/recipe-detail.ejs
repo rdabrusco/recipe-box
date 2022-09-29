@@ -17,6 +17,8 @@
     <!-- site favicon -->
     <link rel="icon" href="images/favicon.png" />
 
+    <!-- fontawesome stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--selectric stylesheet-->
     <link rel="stylesheet" href="../../css/selectric.css"/>
     <!--font awesome stylesheet-->
@@ -150,8 +152,8 @@
                                 <ul class="recipe-specs">
                                     <li><span class="count"><%= recipe.yield %></span><span class="text">Yield</span></li>
                                     <li><span class="count"><%= recipe.servings %></span><span class="text">Servings</span></li>
-                                    <li><span class="count"><%= recipe.prepTime %><span><%= recipe.prepTimeMHD[0] %></span></span><span class="text">Prep Time</span></li>
-                                    <li><span class="count"><%= recipe.cookTime %><span><%= recipe.cookTimeMHD[0] %></span></span><span class="text">Cook Time</span></li>
+                                    <li><span class="count"><%= recipe.prepTime %><span><%= recipe.prepTimeMHD %></span></span><span class="text">Prep Time</span></li>
+                                    <li><span class="count"><%= recipe.cookTime %><span><%= recipe.cookTimeMHD %></span></span><span class="text">Cook Time</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -208,8 +210,8 @@
                     </div>
 
 
-                    <% if(recipe.tips) { %>
-
+                    <% if(recipe.tips[0]) { %>
+                        <% console.log(recipe.tips[0]) %>
                     <div class="tips-variations">
                         <h3>Tips & variations</h3>
                         <ul>
@@ -233,6 +235,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <aside>
+
+                <div class="side-bar">
+                    <% console.log((user._id == recipe.userId) ) %>
+                    <% if(user.id == recipe.userId) { %>
+                        <div class="">
+                            <a href="../editRecipe/<%= recipe._id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <form action="../deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST"><button class=" fa-solid     fa-trash" type="submit"></button></form>
+                            <!-- <a href="../deleteRecipe/<%= recipe._id %>?_method=DELETE"><i class="fa-solid fa-trash"></i></a> -->
+                        </div>
+
+                    <% } %>
+                </div>
+            </aside>
         </div>
 
     </div>

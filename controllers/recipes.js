@@ -15,10 +15,19 @@ module.exports = {
           console.log(err);
         }
       },
-      listAllRecipes: async (req, res) => {
+    listAllRecipes: async (req, res) => {
         try {
           const recipes = await Recipe.find().sort({ createdAt: 1 }).lean();
           res.render("allRecipes.ejs", { recipes: recipes });
+        } catch (err) {
+          console.log(err);
+        }
+      },
+    getRecipe: async (req, res) => {
+        try {
+          const recipe = await Recipe.findById(req.params.id);
+        //   const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
+          res.render("recipe-detail.ejs", { recipe: recipe, user: req.user});
         } catch (err) {
           console.log(err);
         }
@@ -27,9 +36,11 @@ module.exports = {
         try{
 
             console.log( req.file )
-            const result = await cloudinary.uploader.upload(req.file.path);
+            console.log(req.body)
+            const result = await cloudinary.uploader.upload(req.file.path) 
             
             const body = req.body
+            console.log(body)
             let ingredients = []
             let tips = []
             if(!Array.isArray(body.ingredients)){
@@ -53,10 +64,11 @@ module.exports = {
                 source: body.source,
                 shortDes: body.shortDes,
                 fullDes: body.fullDes,
+                file: body.file,
                 img: result ? result.secure_url : "",
                 cloudinaryId: result ? result.public_id : "",
                 ingredients: body.ingredients, 
-                directions: body.directions,
+                directions: body.steps,
                 prepTime: body.prepTime,
                 prepTimeMHD: body.prepTimeMHD,
                 cookTime: body.cookTime,
@@ -68,48 +80,73 @@ module.exports = {
                 tips: body.tips,
                 likes: 0,
                 userId: req.user.id})
-            // console.log(req.body)
+            console.log(req.body)
             console.log(response)
             res.redirect(`/recipes/allRecipes/${response._id}`)
         }catch(err){
             console.log(err)
         }
     },
-    getRecipe: async (req, res) => {
-        try {
-          const recipe = await Recipe.findById(req.params.id);
-        //   const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-          res.render("recipe-detail.ejs", { recipe: recipe, user: req.user});
-        } catch (err) {
-          console.log(err);
-        }
-      },
-    editReview: async (req,res)=>{
+
+    editRecipe: async (req,res)=>{
         try{
-            const reviewItem = await Review.findById(req.params.id)
-            console.log(reviewItem)
-            res.render('editReview.ejs', {review: reviewItem, user: req.user.id})
+            const recipe = await Recipe.findById(req.params.id)
+            res.render('editRecipe.ejs', {recipe: recipe, user: req.user.id})
         }catch(err){
             console.log(err)
         }
     },
-    updateReview: async (req,res)=>{
-        const reviewFromJs = req.body.review
-        const stars = req.body.rating
-        console.log(stars)
+    updateRecipe: async (req,res)=>{
+        const recipe = await Recipe.findById(req.params.id);
+        const body = req.body
+        const result = req.body.file ? await cloudinary.uploader.upload(req.file.path) : ""
+        console.log(req.body, `btihriurh`)
         
         try{
-            await Review.findOneAndUpdate({_id:req.body.id},{
-                review: reviewFromJs,
-                rating: stars,
+            await Recipe.findOneAndUpdate({_id:req.params.id},{
+                title: body.title, 
+                source: body.source,
+                shortDes: body.shortDes,
+                fullDes: body.fullDes,
+                file: body.file,
+                img: result ? result.secure_url : "",
+                cloudinaryId: result ? result.public_id : "",
+                ingredients: body.ingredients, 
+                directions: body.steps,
+                prepTime: body.prepTime,
+                prepTimeMHD: body.prepTimeMHD,
+                cookTime: body.cookTime,
+                cookTimeMHD: body.cookTimeMHD,
+                totalTime: body.totalTime,
+                totalTimeMHD: body.totalTimeMHD,
+                servings: body.servings,
+                yield: body.yield,
+                tips: body.tips,
                 editedAt: Date.now()
             })
-            console.log('Review Updated')
-            res.json('Review Updated')
+            console.log('Recipe Updated')
+            res.redirect(`/recipes/allRecipes/${req.params.id}`)
         }catch(err){
             console.log(err)
         }
     },
+    deleteRecipe: async (req, res) => {
+        console.log(req.params.id)
+
+        try {
+          // Find post by id
+          let recipe = await Recipe.findById({ _id: req.params.id });
+          // Delete image from cloudinary
+          console.log('deleting recipe')
+          await cloudinary.uploader.destroy(recipe.cloudinaryId);
+          // Delete post from db
+          await Recipe.remove({ _id: req.params.id });
+          console.log("Deleted Recipe");
+          res.redirect("/");
+        } catch (err) {
+          res.redirect(`/recipes/allRecipes/${response._id}`);
+        }
+      },
     getReviews: async (req,res)=>{
         console.log(req.user)
         try{
@@ -125,16 +162,6 @@ module.exports = {
         try{
             const reviewItems = await Review.find()
             res.render('allReviews.ejs', {reviews: reviewItems})
-        }catch(err){
-            console.log(err)
-        }
-    },
-    deleteReview: async (req, res)=>{
-        console.log(req.body.reviewIdFromJSFile)
-        try{
-            await Review.findOneAndDelete({_id:req.body.reviewIdFromJSFile})
-            console.log('Deleted Review')
-            res.json('Deleted It')
         }catch(err){
             console.log(err)
         }
