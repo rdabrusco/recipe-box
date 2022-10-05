@@ -8,9 +8,9 @@ upload and save your favorite recipes!
 
 ## How It's Made:
 
-**Tech used:** HTML, CSS, JavaScript, Express, MongoDB, Mongoose
+**Tech used:** HTML, CSS, JavaScript, Express, MongoDB, Mongoose, Multer, Cloudinary
 
-This is a fullstack web application, with the backend written in JavaScript using Node.js.  The framework used for the backend is Express, using EJS for the View and Mongoose to access the model. 
+This is a fullstack web application, with the backend written in JavaScript using Node.js.  The framework used for the backend is Express, using EJS for the View and Mongoose to access the model. Uses Multer to handle files and Cloudinary to store the images. Uses bcrypt for hashing passwords and sensitive data, so all passwords in the database are encrypted. Uses method override to reduce the need for front end javascript by giving the ability to change a form's POST request to whatever request I need. 
 
 ## Optimizations
 
