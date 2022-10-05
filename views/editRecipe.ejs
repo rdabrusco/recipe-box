@@ -63,11 +63,15 @@
                                     <li><a href="/">Home</a>
                                     </li>
                                     <li>
-                                        <a href="../recentRecipes">Recent Recipes</a>
+                                        <a href="/recipes/allRecipes">All Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="./allRecipes">All Recipes</a>
+                                        <a href="#">Saved Recipes</a>
+                                        <ul>
+                                            <li><a href="#">Coming soon!</a></li>
+                                        </ul>
                                     </li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -75,7 +79,7 @@
 
                     <div class="col-md-2">
                         <div class="logo-wrapper">
-                            <a href="#"><img src="images/logo.png" alt="logo"/></a>
+                            <a href="#"><img src="images/default.png" alt="logo"/></a>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -87,14 +91,30 @@
                                     <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 </ul>
                     <span class="sign-in-buttons">
+                        <% if(!user){ %>
                         <a class="login" href="/login">Login</a>
-                        <a class="register" href="/signUp">Register</a>
+                        <a class="register" href="/signup">Register</a>
+                        <% } else { %>
+                            <p class="login" >Hello, <%= user.userName %></p>
+                        <a class="register" href="/logout">Logout</a>
+                        <% } %>
                     </span>
                             </div>
                             <nav class="nav-collapse">
                                 <ul class="main-menu right">
-                                    <li><a href="contact.html">contact</a></li>
-                                    <li><a class="submit-recipe" href="../newRecipe">Submit recipe</a></li>
+                                    <li>
+                                        <a href="#">My Recipes</a>
+                                        <ul>
+                                            <li><a href="#">Coming soon!</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">My Account</a>
+                                        <ul>
+                                            <li><a href="#">Coming soon!</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="submit-recipe" href="recipes/newRecipe">Submit recipe</a></li>
                                 </ul>
                             </nav>
                         </div>

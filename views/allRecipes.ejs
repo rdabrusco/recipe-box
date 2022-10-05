@@ -63,11 +63,15 @@
                                     <li><a href="/">Home</a>
                                     </li>
                                     <li>
-                                        <a href="../recentRecipes">Recent Recipes</a>
+                                        <a href="/recipes/allRecipes">All Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="./allRecipes">All Recipes</a>
+                                        <a href="#">Saved Recipes</a>
+                                        <ul>
+                                            <li><a href="#">Coming soon!</a></li>
+                                        </ul>
                                     </li>
+
                                 </ul>
                             </nav>
                         </div>
@@ -75,32 +79,39 @@
 
                     <div class="col-md-2">
                         <div class="logo-wrapper">
-                            <a href="#"><img src="images/logo.png" alt="logo"/></a>
+                            <a href="/"><img src="../images/default1.png" alt="logo"/></a>
+
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="right-nav">
                             <div class="wrapper-links">
-                                <ul class="header-social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
+
                     <span class="sign-in-buttons">
+                        <% if(!user){ %>
                         <a class="login" href="/login">Login</a>
-                        <a class="register" href="/signUp">Register</a>
+                        <a class="register" href="/signup">Register</a>
+                        <% } else { %>
+                            <p class="login" >Hello, <%= user.userName %></p>
+                        <a class="register" href="/logout">Logout</a>
+                        <% } %>
                     </span>
                             </div>
                             <nav class="nav-collapse">
                                 <ul class="main-menu right">
-                                    <li><a href="blog.html">blog</a>
+                                    <li>
+                                        <a href="#">My Recipes</a>
                                         <ul>
-                                            <li><a href="single.html">Single post</a></li>
+                                            <li><a href="#">Coming soon!</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="elements.html">elements</a></li>
-                                    <li><a href="contact.html">contact</a></li>
-                                    <li><a class="submit-recipe" href="submit-recipe.html">Submit recipe</a></li>
+                                    <li>
+                                        <a href="#">My Account</a>
+                                        <ul>
+                                            <li><a href="#">Coming soon!</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="submit-recipe" href="/recipes/newRecipe">Submit recipe</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -153,7 +164,7 @@
         </p>
         <div class="meta-listing">
             <ul class="post-meta">
-                <li class="author"><a href="#">John Doe</a></li>
+                <li class="author"><a href="#"><%= el.userName %></a></li>
                 <li class="calendar"><%= el.createdAt.toLocaleDateString() %></li>
             </ul>          
         </div>
@@ -179,55 +190,9 @@
 <div class="footer footer-variant-one footer-fluid">
     <div class="container">
         <div class="footer-inner">
-            <div class="text-center">
-                <a class="logo-footer wow animated zoomIn" href="index.html"><img src="images/logo2.png" alt="Logo"/></a>
-                <p class="wow animated flipInX">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    <br/>
-                    magna aliquyam erat, with an extra ordinary design and quality development features in low
-                </p>
-
-            </div>
-
-            <div class="subs-social-options">
-                <div class="row custom-row-footer">
-                    <div class="col-md-6 custom-col-options">
-                        <div class="left-side">
-                            <div class="widget widget-footer news-letter-signup wow animated flipInY">
-                                <h2>Newsletter Signup</h2>
-
-                                <form class="subs-form" action="#" method="post">
-                                    <div class="email-field">
-                                        <input type="email" name="email" placeholder="Enter you email address"/>
-                                        <button><i class="fa fa-paper-plane-o"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="right-side">
-                            <div class="widget widget-footer social-icons">
-                                <h2 class="wow animated fadeInRight">Get Social with Us</h2>
-                                <ul>
-                                    <li class="wow animated bounceInRight"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="wow animated bounceInRight animation-delay100ms"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="wow animated bounceInRight animation-delay200ms" ><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="wow animated bounceInRight animation-delay300ms"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="wow animated bounceInRight animation-delay400ms" ><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-                                    <li class="wow animated bounceInRight animation-delay500ms"><a href="#"><i class="fa fa-flickr"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="footer-copyright text-center">
-                <p>&copy; Copyright 2015 All Rights Reserved by <a href="#">Majestic Themes</a></p>
-            </div>
-            <div class="corner-image wow animated fadeInRight">
-                <img src="images/footer-corner-image.jpg" alt="image"/>
+                <p>&copy; Copyright 2022 All Rights Reserved by <a href="https://ryandabrusco.netlify.app/">Ryan DaBrusco</a></p>
             </div>
         </div>
     </div>

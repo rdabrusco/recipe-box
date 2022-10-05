@@ -5,7 +5,8 @@ const Recipe = require('../models/Recipe')
 module.exports = {
     newRecipe: (req,res)=>{
         console.log('test')
-        res.render('newRecipe.ejs', {user: req.user.id})
+        console.log(req.user)
+        res.render('newRecipe.ejs', {user: req.user})
     },
     listRecentRecipes: async (req, res) => {
         try {
@@ -79,7 +80,8 @@ module.exports = {
                 yield: body.yield,
                 tips: body.tips,
                 likes: 0,
-                userId: req.user.id})
+                userId: req.user.id,
+                userName: req.user.userName})
             console.log(req.body)
             console.log(response)
             res.redirect(`/recipes/allRecipes/${response._id}`)
@@ -108,9 +110,9 @@ module.exports = {
                 source: body.source,
                 shortDes: body.shortDes,
                 fullDes: body.fullDes,
-                file: body.file,
-                img: result ? result.secure_url : "",
-                cloudinaryId: result ? result.public_id : "",
+                // file: body.file,
+                // img: result ? result.secure_url : "",
+                // cloudinaryId: result ? result.public_id : "",
                 ingredients: body.ingredients, 
                 directions: body.steps,
                 prepTime: body.prepTime,
@@ -122,7 +124,9 @@ module.exports = {
                 servings: body.servings,
                 yield: body.yield,
                 tips: body.tips,
-                editedAt: Date.now()
+                editedAt: Date.now(),
+                userId: req.user.id,
+                userName: req.user.userName
             })
             console.log('Recipe Updated')
             res.redirect(`/recipes/allRecipes/${req.params.id}`)
@@ -138,9 +142,12 @@ module.exports = {
           let recipe = await Recipe.findById({ _id: req.params.id });
           // Delete image from cloudinary
           console.log('deleting recipe')
-          await cloudinary.uploader.destroy(recipe.cloudinaryId);
+          console.log(recipe.cloudinaryId)
+          if(recipe.cloudinaryId){
+            await cloudinary.uploader.destroy(recipe.cloudinaryId);
+          }
           // Delete post from db
-          await Recipe.remove({ _id: req.params.id });
+          await Recipe.deleteOne({ _id: req.params.id });
           console.log("Deleted Recipe");
           res.redirect("/");
         } catch (err) {

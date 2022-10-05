@@ -1,9 +1,12 @@
 const cloudinary = require("../middleware/cloudinary");
+const Recipe = require('../models/Recipe')
+
 
 
 module.exports = {
-    getIndex: (req,res)=>{
+    getIndex: async (req,res)=>{
         console.log(req.user)
-        res.render('index.ejs')
+        const recipes = await Recipe.find().sort({ createdAt: 1 }).lean();
+        res.render('index.ejs', {recipes: recipes})
     }
 }

@@ -102,6 +102,10 @@ const RecipeSchema = new mongoose.Schema({
         ref: "User",
     },
 
+    userName: {
+        type: String,
+    },
+
     createdAt: {
         type: Date,
         default: Date.now

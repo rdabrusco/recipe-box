@@ -721,7 +721,6 @@ a.mean-expand {
 /*--------------------*/
 .header-var1 {
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 .header-var1 .responsive-menu {
   display: none !important;
@@ -731,6 +730,7 @@ a.mean-expand {
 }
 .header-var1 .logo-wrapper img {
   max-width: 100%;
+  max-height: 200px;
 }
 .header-var1 nav > ul {
   display: flex;
@@ -2785,11 +2785,14 @@ a.mean-expand {
   opacity: 1;
 }
 .footer-boxed .footer-inner {
-  background-image: url("../images/temp-images/footer-bg.jpg");
+  background-image: url("../images/default.png");
 }
 .footer-fluid {
-  background-image: url("../images/temp-images/footer-bg-full.jpg");
+  background-image: url("../images/default.png");
   background-size: cover;
+}
+.row-reverse {
+  flex-direction: row-reverse
 }
 .footer-inner {
   padding-top: 55px;
@@ -2813,6 +2816,7 @@ a.mean-expand {
   padding-left: 140px;
   padding-right: 140px;
 }
+
 .subs-social-options {
   border-top: 1px solid #2e2a26;
 }
@@ -3398,6 +3402,16 @@ a.mean-expand {
 .comments-form input[type="submit"]:hover {
   background: #000000;
 }
+.fa-trash input[type="submit"]{
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 .comments-form input[type="text"],
 .comments-form input[type="email"] {
   width: 70%;
@@ -5946,8 +5960,7 @@ div.widget-measurements .default-btn {
 }
 @media (max-width: 991px) {
   .logo-wrapper {
-    margin-top: 40px;
-    margin-bottom: 40px;
+
     text-align: center;
   }
   .wrapper-links {
@@ -6621,5 +6634,41 @@ div.widget-measurements .default-btn {
   }
   .steps-detail .single-detail {
     border-bottom: 1px solid #c9d6bf;
+  }
+}
+
+
+/**************
+
+/*Custom
+
+/*************/
+
+.flex-feature{
+  display: flex;
+  margin: 5%;
+  height: 30%;
+}
+
+.flex-feature-img {
+  width: 66%;
+}
+
+.feature-right {
+  width: 33%;
+  padding: 5%;
+  background-color: #ddecf3
+}
+
+@media (max-width: 991px){
+  .flex-feature{
+    flex-direction: column;
+    margin: 12%;
+  }
+  .flex-feature-img{
+    width: 100%;
+  }
+  .feature-right{
+    width: 100%;
   }
 }

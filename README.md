@@ -1,44 +1,23 @@
-# Introduction
+# Our Recipe Box
+This fullstack web application is a recipe congregation website, as well as my 100Hours project. It allows you to
+upload and save your favorite recipes!
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
 
----
 
-> Be sure to add that lovely star 😀 and fork it for your own copy
 
----
 
-# Objectives
+## How It's Made:
 
-- It's a beginner level app created to understand how MVC concept and logins are added
+**Tech used:** HTML, CSS, JavaScript, Express, MongoDB, Mongoose
 
----
+This is a fullstack web application, with the backend written in JavaScript using Node.js.  The framework used for the backend is Express, using EJS for the View and Mongoose to access the model. 
 
-# Who is this for? 
+## Optimizations
 
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
+As time goes on, I will be adding various features that I have always wanted on a recipe website. First of all, I will create a floating ingredients list so that the ingredients are always visible, as well as adding a web scraper that you
+can give a URL and it will grab the relevant information, and upload it to the database.
 
----
+## Lessons Learned:
 
-# Packages/Dependencies used 
-
-bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mongodb, mongoose, morgan, nodemon, passport, passport-local, validator
-
----
-
-# Install all the dependencies or node packages used for development via Terminal
-
-`npm install` 
-
----
-
-# Things to add
-
-- Create a `.env` file and add the following as `key: value` 
-  - PORT: 2121 (can be any port example: 3000) 
-  - DB_STRING: `your database URI` 
- ---
- 
- Have fun testing and improving it! 😎
-
+I have learned to make sure I am editing exactly where I mean to, and to check and recheck things that I believe I fixed previously, as sometimes I may place the fix in the wrong spot.  Also, after building out the front end as well as the back end from the ground up, I feel like I have a much deeper understanding of both.
 
