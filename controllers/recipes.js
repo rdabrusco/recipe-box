@@ -1,5 +1,7 @@
 const cloudinary = require("../middleware/cloudinary");
 const Recipe = require('../models/Recipe')
+const User = require('../models/User')
+
 
 
 module.exports = {
@@ -12,6 +14,56 @@ module.exports = {
         try {
           const recipes = await Recipe.find().sort({ createdAt: "desc" }).lean();
           res.render("allRecipes.ejs", { recipes: recipes });
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      savedRecipes: async (req, res) => {
+        try {
+          const faves = req.user.favorites
+          const recipes = await Recipe.find({_id: {$in: faves}})
+          console.log(recipes)
+          res.render('savedRecipes.ejs', {user: req.user, recipes: recipes})
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      myRecipes: async (req, res) => {
+        try {
+          const recipes = await Recipe.find({userId: req.user.id}).sort({ createdAt: "desc" }).lean();
+          res.render("myRecipes.ejs", { recipes: recipes });
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      
+      saveRecipe: async (req, res) => {
+        try {
+          const userFaves = req.user.favorites
+          if(!userFaves.includes(String(req.params.id))){
+            userFaves.push(String(req.params.id))
+            const update = await User.findOneAndUpdate({_id:req.user.id},{
+              favorites: userFaves,
+            })
+          }else{
+            console.log('Recipe already exists in favorites.')
+          }
+         
+          res.redirect('back')
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      unsaveRecipe: async (req, res) => {
+        try {
+          const recipe = req.params.id
+          const userFaves = req.user.favorites
+          userFaves.splice(userFaves.indexOf(req.params.id), 1)
+          const update = await User.findOneAndUpdate({_id:req.user.id},{
+            favorites: userFaves,
+          })
+         
+          res.redirect('back')
         } catch (err) {
           console.log(err);
         }
@@ -154,33 +206,6 @@ module.exports = {
           res.redirect(`/recipes/allRecipes/${response._id}`);
         }
       },
-    getReviews: async (req,res)=>{
-        console.log(req.user)
-        try{
-            const reviewItems = await Review.find({userId:req.user.id})
-            res.render('reviews.ejs', {reviews: reviewItems, user: req.user})
-        }catch(err){
-            console.log(err)
-        }
-    },
 
-    allReviews: async (req,res)=>{
-        console.log(req.user)
-        try{
-            const reviewItems = await Review.find()
-            res.render('allReviews.ejs', {reviews: reviewItems})
-        }catch(err){
-            console.log(err)
-        }
-    },
-    getPoster: async (req, res) => {
-        try{
-            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.API_KEY}&query=${req.body.movie}`)
-            const data = await response.json()
-            res.json(data) 
-        }catch(err){
-            console.error(err)
-        }
-    }
     
 }

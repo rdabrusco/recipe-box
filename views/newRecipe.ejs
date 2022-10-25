@@ -66,10 +66,11 @@
                                         <a href="/recipes/allRecipes">All Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="#">Saved Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <% if(!user){ %>
+                                            <a href="#" onClick="alert('Please log in first')">Saved Recipes</a>
+                                            <% }else { %>
+                                                <a href="/recipes/savedRecipes">Saved Recipes</a>
+                                            <% } %>
                                     </li>
 
                                 </ul>
@@ -79,18 +80,19 @@
 
                     <div class="col-md-2">
                         <div class="logo-wrapper">
-                            <a href="/"><img src="../images/default1.png" alt="logo"/></a>
+                            <a href="#"><img class="hide-sm" src="images/default1.png" alt="logo"/></a>
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="right-nav">
                             <div class="wrapper-links">
+
                     <span class="sign-in-buttons">
                         <% if(!user){ %>
                         <a class="login" href="/login">Login</a>
                         <a class="register" href="/signup">Register</a>
                         <% } else { %>
-                            <p class="login" >Hello, <%=user.userName%></p>
+                            <p class="login" >Hello, <%= user.userName %></p>
                         <a class="register" href="/logout">Logout</a>
                         <% } %>
                     </span>
@@ -98,10 +100,11 @@
                             <nav class="nav-collapse">
                                 <ul class="main-menu right">
                                     <li>
-                                        <a href="#">My Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <% if(!user){ %>
+                                        <a href="#" onClick="alert('Please log in first')">My Recipes</a>
+                                        <% }else { %>
+                                            <a href="/recipes/myRecipes">My Recipes</a>
+                                        <% } %>
                                     </li>
                                     <li>
                                         <a href="#">My Account</a>
@@ -109,7 +112,14 @@
                                             <li><a href="#">Coming soon!</a></li>
                                         </ul>
                                     </li>
-                                    <li><a class="submit-recipe" href="/recipes/newRecipe">Submit recipe</a></li>
+                                    <li>
+                                        <% if(!user){ %>
+                                            <a class="submit-recipe" href="#"  onClick="alert('Please log in first')">Submit recipe</a>
+                                            <% }else { %>
+                                                <a class="submit-recipe" href="recipes/newRecipe">Submit recipe</a>
+                                            <% } %>
+                                        
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -131,91 +141,7 @@
 
     </div>
 </div>
-<!-- <div class="advance-search">
 
-
-    <div class="container">
-        <div class="wrapper-search">
-            <div class="container-tags">
-            <span class="tag">
-                <span class="tag-inner">Find Recipes <i class="fa fa-angle-down"></i></span>
-            </span>
-
-            </div>
-            <div class="outer-advance-search">
-
-                <form action="#" id="advance-search">
-                    <fieldset>
-                        <div class="inner-advance-search">
-
-                            <div class="form-field">
-                                <label for="ingredient">ingredient</label>
-                                <select name="ingredient" id="ingredient" class="advance-selectable">
-                                    <option value="ing1" selected="selected">Any Ingredient</option>
-                                    <option value="ing2">Butter</option>
-                                    <option value="ing3">Cheese</option>
-                                    <option value="ing4">Cream</option>
-                                    <option value="ing5">Yeast</option>
-                                </select>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="course">course</label>
-                                <select name="course" id="course" class="advance-selectable">
-                                    <option value="ing1" selected="selected">Any Course</option>
-                                    <option value="ing2">Butter</option>
-                                    <option value="ing3">Cheese</option>
-                                    <option value="ing4">Cream</option>
-                                    <option value="ing5">Yeast</option>
-                                </select>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="cuisine">cuisine</label>
-                                <select name="cuisine" id="cuisine" class="advance-selectable">
-                                    <option value="ing1" selected="selected">Any Cuisine</option>
-                                    <option value="ing2">Butter</option>
-                                    <option value="ing3">Cheese</option>
-                                    <option value="ing4">Cream</option>
-                                    <option value="ing5">Yeast</option>
-                                </select>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="time">Cooking Time</label>
-                                <select name="time" id="time" class="advance-selectable">
-                                    <option value="ing1" selected="selected">Any Cooking Time</option>
-                                    <option value="ing2">Butter</option>
-                                    <option value="ing3">Cheese</option>
-                                    <option value="ing4">Cream</option>
-                                    <option value="ing5">Yeast</option>
-                                </select>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="calories">calories</label>
-                                <select name="calories" id="calories" class="advance-selectable">
-                                    <option value="ing1" selected="selected">Any Calories</option>
-                                    <option value="ing2">Butter</option>
-                                    <option value="ing3">Cheese</option>
-                                    <option value="ing4">Cream</option>
-                                    <option value="ing5">Yeast</option>
-                                </select>
-                            </div>
-
-                            <button type="submit"><i class="fa fa-search"></i></button>
-
-                        </div>
-                    </fieldset>
-
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-</div> -->
-<!--banner ends-->
 
 
 
@@ -316,59 +242,7 @@
                 </div>
 
 
-                <!-- <div class="row">
-                    <div class="col-sm-6">
-                        <label for="recipe-type">Recipe Type</label>
-                        <select name="recipe-type" id="recipe-type" class="advance-selectable">
-                            <option value="t0" selected="selected">None</option>
-                            <option value="t1">Salad</option>
-                            <option value="t1">Main</option>
-                            <option value="t1">Bread</option>
-                            <option value="t1">Vegetarian</option>
-                            <option value="t1">Meat</option>
-                            <option value="t1">Pasta</option>
-
-                            <option value="t1">Pasta</option>
-                            <option value="t2">type 2</option>
-                            <option value="t3">type 3</option>
-                            <option value="t4">type 4</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="cuisine-select">Cuisine</label>
-                        <select name="cuisine" id="cuisine-select" class="advance-selectable">
-                            <option value="c0" selected="selected">None</option>
-                            <option value="c1">type 1</option>
-                            <option value="c2">type 2</option>
-                            <option value="c3">type 3</option>
-                            <option value="c4">type 4</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="course-select">Course</label>
-                        <select name="course" id="course-select" class="advance-selectable">
-                            <option value="cr0" selected="selected">None</option>
-                            <option value="cr1">type 1</option>
-                            <option value="cr2">type 2</option>
-                            <option value="cr3">type 3</option>
-                            <option value="cr4">type 4</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="skill">Skill Level</label>
-                        <select name="skill" id="skill" class="advance-selectable">
-                            <option value="s0" selected="selected">None</option>
-                            <option value="s1">type 1</option>
-                            <option value="s2">type 2</option>
-                            <option value="s3">type 3</option>
-                            <option value="s4">type 4</option>
-                        </select>
-                    </div>
-                </div>
-
-                <label for="tags">Tags</label>
-                <input type="text" name="tags" placeholder="Add search terms here!" id="tags"/> -->
-
+                
                 <fieldset class="ingredient-set">
                     <label for="tips">Tips</label>
                     <ul class="list-sortable tips">

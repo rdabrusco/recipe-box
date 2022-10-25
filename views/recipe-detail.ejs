@@ -51,7 +51,7 @@
 <!--pre-loader ends-->
 
 <!--header-->
-<header>
+<header class="header-logo">
     <div class="header header-var1 fade-load-down">
         <div class="responsive-menu"></div>
         <div class="nav-var1">
@@ -68,10 +68,7 @@
                                         <a href="/recipes/allRecipes">All Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="#">Saved Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <a href="/recipes/savedRecipes">Saved Recipes</a>
                                     </li>
 
                                 </ul>
@@ -81,7 +78,7 @@
 
                     <div class="col-md-2">
                         <div class="logo-wrapper">
-                            <a href="/"><img src="../../images/default1.png" alt="logo"/></a>
+                            <a href="/"><img class='hide-sm' src="../../images/default1.png" alt="logo"/></a>
 
                         </div>
                     </div>
@@ -102,10 +99,7 @@
                             <nav class="nav-collapse">
                                 <ul class="main-menu right">
                                     <li>
-                                        <a href="#">My Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <a href="/recipes/myRecipes">My Recipes</a>
                                     </li>
                                     <li>
                                         <a href="#">My Account</a>
@@ -140,27 +134,41 @@
 <div class="recipes-home-body inner-page">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-lg-9">
-                <div class="recipe-set ">
+            <div class="col-md-8 col-lg-9 full-width">
+                <div class="recipe-set">
                     <div class="wrapper-detail-contents">
                         <div class="single-recipe-detail">
                             <div class="wrapper-recipe-heading">
-                                <div class="heading">
+                                
                                     <h2><%= recipe.title %></h2>
-                                </div>
-                                <% console.log((user._id == recipe.userId) ) %>
-                                <% if(user.id == recipe.userId) { %>
-                                    <div class="flex">
-                                        <a href="../editRecipe/<%= recipe._id %>"><i class="fa-solid fa-pen-to-square edit"></i></a>
-                                        <form action="../deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST"><button class=" fa-solid     fa-trash delete" onClick="return confirm('Do you want to delete this recipe?')" type="submit"></button></form>
-                                        <!-- <a href="../deleteRecipe/<%= recipe._id %>?_method=DELETE"><i class="fa-solid fa-trash"></i></a> -->
-                                    </div>
+                                    <% if(user) { %>
+                                    <section class="buttons-bar">
+                                        <% if(user.favorites.includes(String(recipe._id))) { %>
+                                        <form action="/recipes/unsaveRecipe/<%= recipe._id%>?_method=PUT" method="POST">
+                                            
+                                            
+                                            <button type="submit" class="fa-solid fa-bookmark btn-fix saved"></button>
+                                        </form>
+
+                                            <% } else { %>
+                                                <form action="/recipes/saveRecipe/<%= recipe._id%>?_method=PUT" method="POST">
+                                                <button type="submit" class="fa-solid fa-bookmark btn-fix "></button>
+                                            <% } %>
+                                            </form>
+                                            <% if(user.id == recipe.userId) { %>
+                                            <a href="../editRecipe/<%= recipe._id %>"><i class="fa-solid fa-pen-to-square edit"></i></a>
+                                            <form action="../deleteRecipe/<%= recipe._id %>?_method=DELETE" method="POST"><button class=" fa-solid     fa-trash delete btn-fix" onClick="return confirm('Do you want to delete this recipe?')" type="submit"></button></form>
+                                            <% } %>
+                                    </section>
+
+                                    <% } %>
+                                    
+                                
             
-                                <% } %>
                             </div>
 
                             <div class="slider-recipe-detail">
-                                <img src="<%= recipe.img %>" alt="">
+                                <img class="recipe-img" src="<%= recipe.img %>" alt="">
                                 <ul class="recipe-specs">
                                     <li><span class="count"><%= recipe.yield %></span><span class="text">Yield</span></li>
                                     <li><span class="count"><%= recipe.servings %></span><span class="text">Servings</span></li>
@@ -174,11 +182,7 @@
                     <div class="recipe-detail-body">
                     <a href="#" class="print-button"><i class="fa fa-print"></i>Print Recipe</a>
 
-                    <!-- <ul class="pre-tags">
-                        <li><span>Cuisine : </span>Chinese</li>
-                        <li><span>Course : </span>Side Dish</li>
-                        <li><span>Skill Level : </span>Advanced</li>
-                    </ul> -->
+
                     <div class="separator-post"></div>
                     <p>
                         <%= recipe.fullDes ? recipe.fullDes : recipe.shortDes %>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Submit New Recipe</title>
+    <title>All Recipes</title>
     <!--google fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -49,7 +49,7 @@
 <!--pre-loader ends-->
 
 <!--header-->
-<header>
+<header class="header-logo">
     <div class="header header-var1 fade-load-down">
         <div class="responsive-menu"></div>
         <div class="nav-var1">
@@ -66,10 +66,11 @@
                                         <a href="/recipes/allRecipes">All Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="#">Saved Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <% if(!user){ %>
+                                            <a href="#" onClick="alert('Please log in first')">Saved Recipes</a>
+                                            <% }else { %>
+                                                <a href="/recipes/savedRecipes">Saved Recipes</a>
+                                            <% } %>
                                     </li>
 
                                 </ul>
@@ -79,8 +80,7 @@
 
                     <div class="col-md-2">
                         <div class="logo-wrapper">
-                            <a href="/"><img src="../images/default1.png" alt="logo"/></a>
-
+                            <a href="#"><img class="hide-sm"src="../../images/default1.png" alt="logo"/></a>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -100,10 +100,11 @@
                             <nav class="nav-collapse">
                                 <ul class="main-menu right">
                                     <li>
-                                        <a href="#">My Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <% if(!user){ %>
+                                        <a href="#" onClick="alert('Please log in first')">My Recipes</a>
+                                        <% }else { %>
+                                            <a href="/recipes/myRecipes">My Recipes</a>
+                                        <% } %>
                                     </li>
                                     <li>
                                         <a href="#">My Account</a>
@@ -111,7 +112,14 @@
                                             <li><a href="#">Coming soon!</a></li>
                                         </ul>
                                     </li>
-                                    <li><a class="submit-recipe" href="/recipes/newRecipe">Submit recipe</a></li>
+                                    <li>
+                                        <% if(!user){ %>
+                                            <a class="submit-recipe" href="#"  onClick="alert('Please log in first')">Submit recipe</a>
+                                            <% }else { %>
+                                                <a class="submit-recipe" href="recipes/newRecipe">Submit recipe</a>
+                                            <% } %>
+                                        
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -142,23 +150,23 @@
 <div class="col-md-8 col-lg-9">
 <div class="recipe-set">
 <div class="listing-buttons">
-    <span class="grid current"><i class="fa fa-th-large"></i></span>
-    <span class="list "><i class="fa fa-bars"></i></span>
+    <span class="grid"><i class="fa fa-th-large"></i></span>
+    <span class="list current "><i class="fa fa-bars"></i></span>
 </div>
 <h2>Recipes</h2>
 
-<div class="recipe-listing listing-grid">
+<div class="recipe-listing listing-list">
 
 <% recipes.forEach(el => { %>
     
 <div class="listing">
     <div class="image">
-        <a href="allRecipes/<%= el._id %>">
+        <a href="/recipes/allRecipes/<%= el._id %>">
             <img src="<%= el.img %>" alt="image"/>
         </a>
     </div>
     <div class="detail">
-        <h4><a href="allRecipes/<%= el._id %>"><%= el.title %></a></h4>
+        <h4><a href="/recipes/allRecipes/<%= el._id %>"><%= el.title %></a></h4>
         <p>
             <%= el.shortDes %>
         </p>

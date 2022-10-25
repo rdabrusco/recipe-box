@@ -106,6 +106,7 @@
 /* heading bottom line
 /*--------------------*/
 .bottom-line,
+.detail,
 .bottom-line-large {
   position: relative;
 }
@@ -592,6 +593,7 @@ ul {
 span.sign-in-buttons {
   border: 1px solid #000000;
   display: inline-table;
+  border-radius: 5px;
 }
 span.sign-in-buttons a {
   padding: 6px 12px;
@@ -605,6 +607,7 @@ span.sign-in-buttons a:hover {
 }
 span.sign-in-buttons .login {
   border-right: 1px solid #000000;
+  padding: 0 5px;
 }
 .nav-collapse > ul {
   margin-bottom: 0;
@@ -1831,7 +1834,6 @@ a.mean-expand {
   padding: 30px;
   background: #f8f6f1;
   overflow: hidden;
-  min-height: 310px;
   transition: 0.2s all ease-in-out;
 }
 .single-recipe .recipe-detail h3 {
@@ -1851,6 +1853,10 @@ a.mean-expand {
 }
 .single-recipe .read-more-bordered {
   margin-top: 20px;
+}
+
+.recipe-img{
+  max-width: 80%;
 }
 /*--------------------*/
 /* hot recipes variation two
@@ -3715,6 +3721,7 @@ a.mean-expand {
 .widget-get-social ul li .count {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
+  text-align: center;
 }
 .widget-get-social ul li .count-type {
   opacity: .7;
@@ -4030,8 +4037,7 @@ div.widget-measurements .default-btn {
 /*-----------------------------------------------------------------------------------*/
 .recipes-home-body {
   background: #f8f6f5;
-  padding-top: 85px;
-  padding-bottom: 85px;
+
 }
 .recipes-home-body .recipe-of-day {
   margin-bottom: 40px;
@@ -4537,6 +4543,7 @@ div.widget-measurements .default-btn {
 .wrapper-recipe-heading {
   margin-bottom: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 .wrapper-recipe-heading .heading {
@@ -4608,7 +4615,8 @@ div.widget-measurements .default-btn {
 .slider-recipe-detail .recipe-specs li .count {
   font-family: 'Lora', serif;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 20px;
+  text-align: center;
 }
 .slider-recipe-detail .recipe-specs li .count span {
   font-weight: 400;
@@ -5183,7 +5191,8 @@ div.widget-measurements .default-btn {
 .listing .detail {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  height: 100%;
   width: 69%;
   border: 1px solid #e4d9d1;
   margin: 10px;
@@ -6640,24 +6649,128 @@ div.widget-measurements .default-btn {
 
 /**************
 
-/*Custom
+/*Custom-CSS
 
 /*************/
 
 .flex-feature{
   display: flex;
-  margin: 5%;
+  margin: 5% 1%;
   height: 30%;
+  justify-content: center;
+} 
+
+.flex{
+  display: flex;
+}
+.baseline{
+  align-items: baseline;
+
 }
 
-.flex-feature-img {
-  width: 66%;
+.column{
+  flex-direction: column;
 }
+
+
 
 .feature-right {
   width: 33%;
-  padding: 5%;
-  background-color: #ddecf3
+  padding: 3%;
+  background-color: #ddecf3;
+  flex-direction: column;
+}
+
+.upper-right {
+  position: absolute;
+  top:0;
+  right: 0;
+}
+
+.footer-main{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.mw {
+  max-width: 100%;
+}
+
+.buttons-bar{
+  display: flex;
+  align-items: flex-end;
+  width:18%;
+  justify-content: space-between;
+  align-self: end;
+}
+
+.no-saved-box{
+  display: flex;
+  align-content: center;
+  align-items: center;
+  border: 2px solid #67b238;
+  height: 300px;
+  border-radius: 5px;
+  justify-content: center;
+  margin-bottom: 10%;
+  
+}
+
+.btn-fix{
+  padding: 10px 0 0 0;
+  border: 0;
+  font-size: 20px;
+  background: none;
+}
+
+.no-btn{
+  background: none;
+  border: none;
+}
+
+.del-btn{
+  color: red;
+  font-size: 20px;
+}
+.recipe-set{
+  margin-left: 10%;
+
+}
+
+.full-width{
+  width:100%;
+}
+
+.saved{
+  color: #6ebe3b;
+}
+
+.login-box{
+  border: 2px solid #6ebe3b;
+  border-radius: 5px;
+  width: 40%;
+  margin:2%;
+  padding: 7%;
+}
+
+.center{
+  justify-content: center;
+  align-items: center;
+}
+
+.sm-gap{
+  gap: 10px;
+}
+
+
+
+
+
+@media (min-width: 1200px){
+  .full-width{
+    width: 80%;
+  }
 }
 
 @media (max-width: 991px){
@@ -6670,5 +6783,22 @@ div.widget-measurements .default-btn {
   }
   .feature-right{
     width: 100%;
+  }
+  .header-logo{
+    background:url('../../images/default1.png') center center no-repeat;
+    background-size: contain;
+    transition: 0.2s all ease-in-out;
+  }
+  .login-box{
+    width: 80%;
+  }
+  .hide-sm{
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 600px){
+  .recipe-img{
+    max-width:100%;
   }
 }

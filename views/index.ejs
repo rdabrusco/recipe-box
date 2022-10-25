@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Food & Health</title>
+    <title>Our Recipe Book</title>
     <!--google fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -51,7 +51,7 @@
 <!--pre-loader ends-->
 
 <!--header-->
-<header>
+<header class="header-logo">
     <div class="header header-var1 fade-load-down">
         <div class="responsive-menu"></div>
         <div class="nav-var1">
@@ -68,10 +68,11 @@
                                         <a href="/recipes/allRecipes">All Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="#">Saved Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <% if(!user){ %>
+                                            <a href="#" onClick="alert('Please log in first')">Saved Recipes</a>
+                                            <% }else { %>
+                                                <a href="/recipes/savedRecipes">Saved Recipes</a>
+                                            <% } %>
                                     </li>
 
                                 </ul>
@@ -81,7 +82,7 @@
 
                     <div class="col-md-2">
                         <div class="logo-wrapper">
-                            <a href="#"><img src="images/default1.png" alt="logo"/></a>
+                            <a href="#"><img class="hide-sm"src="images/default1.png" alt="logo"/></a>
                         </div>
                     </div>
                     <div class="col-md-5">
@@ -101,10 +102,11 @@
                             <nav class="nav-collapse">
                                 <ul class="main-menu right">
                                     <li>
-                                        <a href="#">My Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <% if(!user){ %>
+                                        <a href="#" onClick="alert('Please log in first')">My Recipes</a>
+                                        <% }else { %>
+                                            <a href="/recipes/myRecipes">My Recipes</a>
+                                        <% } %>
                                     </li>
                                     <li>
                                         <a href="#">My Account</a>
@@ -112,7 +114,14 @@
                                             <li><a href="#">Coming soon!</a></li>
                                         </ul>
                                     </li>
-                                    <li><a class="submit-recipe" href="recipes/newRecipe">Submit recipe</a></li>
+                                    <li>
+                                        <% if(!user){ %>
+                                            <a class="submit-recipe" href="#"  onClick="alert('Please log in first')">Submit recipe</a>
+                                            <% }else { %>
+                                                <a class="submit-recipe" href="recipes/newRecipe">Submit recipe</a>
+                                            <% } %>
+                                        
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
@@ -125,9 +134,18 @@
 </header>
 <!--header ends-->
 
+<div class="banner banner-blog">
+    <div class="container ">
+        <div class="main-heading">
+            <h1>Home</h1>
+        </div>
+
+    </div>
+</div>
+
 <section>
     <div class="flex-feature">
-        <a class="flex-feature-img" href="/recipes/allRecipes/<%= recipes[0]._id %>"><img class="" src="<%= recipes[0].img %>" alt=""></a>
+        <a class="flex-feature-img" href="/recipes/allRecipes/<%= recipes[0]._id %>"><img class="mw" src="<%= recipes[0].img %>" alt=""></a>
         <div class="feature-right flex">
             <h2 class="recipe-title"><a href="/recipes/allRecipes/<%= recipes[0]._id %>"><%= recipes[0].title %></a></h2>
             <ul class="post-meta slider-rating">
@@ -158,7 +176,7 @@
             </span>
         </div>
 
-        <div class="row wow animated fadeInUp">
+        <div class="row wow animated fadeInUp flex baseline">
             <% for(let i = 0; i < 3; i++){ %>
                 <div class="col-sm-4">
                     <div class="single-recipe text-center">
@@ -183,7 +201,7 @@
                                    </svg>
                                  </span>
                             <p>
-                                <%= recipes[i].shortDes %>
+                                <%= recipes[i].shortDes.slice(0, 60) + "..." %>
                             </p>
                         </div>
                     </div>
@@ -202,7 +220,7 @@
 
 <!--footer -->
 <div class="animate-footer footer footer-variant-one footer-boxed">
-    <div class="container">
+    <div class="foonter-main">
         <div class="footer-inner">
 
             <div class="footer-copyright text-center wow animated flipInX">

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <title>Submit New Recipe</title>
+    <title>Edit Recipe</title>
     <!--google fonts-->
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -49,7 +49,7 @@
 <!--pre-loader ends-->
 
 <!--header-->
-<header>
+<header class="header-logo">
     <div class="header header-var1 fade-load-down">
         <div class="responsive-menu"></div>
         <div class="nav-var1">
@@ -66,10 +66,7 @@
                                         <a href="/recipes/allRecipes">All Recipes</a>
                                     </li>
                                     <li>
-                                        <a href="#">Saved Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <a href="/recipes/savedRecipes">Saved Recipes</a>
                                     </li>
 
                                 </ul>
@@ -79,17 +76,14 @@
 
                     <div class="col-md-2">
                         <div class="logo-wrapper">
-                            <a href="#"><img src="images/default.png" alt="logo"/></a>
+                            <a href="/"><img class='hide-sm' src="../../images/default1.png" alt="logo"/></a>
+
                         </div>
                     </div>
                     <div class="col-md-5">
                         <div class="right-nav">
                             <div class="wrapper-links">
-                                <ul class="header-social-icons">
-                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                </ul>
+
                     <span class="sign-in-buttons">
                         <% if(!user){ %>
                         <a class="login" href="/login">Login</a>
@@ -103,10 +97,7 @@
                             <nav class="nav-collapse">
                                 <ul class="main-menu right">
                                     <li>
-                                        <a href="#">My Recipes</a>
-                                        <ul>
-                                            <li><a href="#">Coming soon!</a></li>
-                                        </ul>
+                                        <a href="/recipes/myRecipes">My Recipes</a>
                                     </li>
                                     <li>
                                         <a href="#">My Account</a>
@@ -114,7 +105,7 @@
                                             <li><a href="#">Coming soon!</a></li>
                                         </ul>
                                     </li>
-                                    <li><a class="submit-recipe" href="recipes/newRecipe">Submit recipe</a></li>
+                                    <li><a class="submit-recipe" href="/recipes/newRecipe">Submit recipe</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -131,7 +122,7 @@
 <div class="banner banner-blog">
     <div class="container ">
         <div class="main-heading">
-            <h1>Submit Recipe</h1>
+            <h1>Edit Recipe</h1>
         </div>
 
     </div>
