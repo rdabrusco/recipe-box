@@ -124,7 +124,7 @@
 <div class="banner banner-blog">
     <div class="container ">
         <div class="main-heading">
-            <h1>Recipe details page</h1>
+            <h1>Recipe Details</h1>
         </div>
 
     </div>
@@ -139,8 +139,11 @@
                     <div class="wrapper-detail-contents">
                         <div class="single-recipe-detail">
                             <div class="wrapper-recipe-heading">
-                                
-                                    <h2><%= recipe.title %></h2>
+                                <div class="flex ">
+                                    <h2><%= recipe.title.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ') %></h2>
+                                    <h4>Submitted By: <%= recipe.userName.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ') %></h4>
+                                </div>
+                                    
                                     <% if(user) { %>
                                     <section class="buttons-bar">
                                         <% if(user.favorites.includes(String(recipe._id))) { %>
@@ -279,7 +282,6 @@
 
 <script src="../../js/jquery-1.11.3.min.js"></script>
 <script src="../../js/jquery-ui.js"></script>
-<script src="../../js/flexslider/jquery.flexslider-min.js"></script>
 <script src="../../js/slick.min.js"></script>
 <script src="../../js/jquery.meanmenu.js"></script>
 <script src="../../js/jquery.selectric.min.js"></script>
