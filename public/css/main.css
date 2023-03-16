@@ -5184,7 +5184,7 @@ div.widget-measurements .default-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(228, 228, 228, 0.5);
+  background-color: #f8f6f500;
 }
 .listing .image a:hover {
   opacity: .7;
