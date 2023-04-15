@@ -6456,6 +6456,12 @@ div.widget-measurements .default-btn {
   .chef-team > li:hover .chef-detail {
     width: auto;
   }
+  #hottest {
+    flex-direction: column;
+  }
+  #hottest .recipe-detail {
+    display: none;
+  }
 }
 @media (max-width: 500px) {
   .recipe-banner {
