@@ -3012,6 +3012,7 @@ a.mean-expand {
 }
 .banner-blog {
   background-image: url("../images/banner-blog.jpg");
+  display: flex;
 }
 .banner-chef {
   background-image: url("../images/temp-images/banner-chefs.jpg");
